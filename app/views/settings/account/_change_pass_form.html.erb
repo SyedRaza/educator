@@ -1,0 +1,20 @@
+<%= simple_form_for :pass_change,
+  :url=>account_setting_user_settings_path( current_user ), :remote=>true  do |s|
+%>
+  <%= s.input :old_password,
+    :as=>:password,
+    :wrapper_html=>{:class=>'field-box space-bottom-10'},
+    :label_html=>{:class=>'left display-block space-right-15 text-align-righ'} %>
+  <%= s.input :new_password,
+    :as=>:password,
+    :wrapper_html=>{:class=>'field-box space-bottom-10'},
+    :label_html=>{:class=>'left display-block space-right-15 text-align-righ'} %>
+  <%= s.input :confirm_password,
+    :as=>:password,
+    :wrapper_html=>{:class=>'field-box space-bottom-10'},
+    :label_html=>{:class=>'left display-block space-right-15 text-align-righ'} %>
+  <%= content_tag :div, :class=>'setting-left-side-content space-bottom-10' do %>
+    <%= submit_tag 'Change Password', :type=>'button', :class=>'submit-btn'  %>
+    <%= submit_tag 'Cancel', :type=>'button', :class=>'btn-cancel space-left-5' %>
+  <% end %>
+<% end %>

@@ -1,0 +1,36 @@
+<%= content_tag :div,
+  :id=>"compact-message-side-bar",
+  :class=>"container bottom-border border-color
+  space-bottom-inner-10" do %>
+  <% messages_partial.each do |message| 
+    if message.read == false
+      @unread = 'unread'
+    else
+      @unread = nil
+    end
+  %>
+    <%= show_for message, :class=>"inner-container #{ @unread } space-top-5  " do |s| %>
+      <%= content_tag :div, :class=>'lt' do  %>
+        <%= link_to( image_tag( s.object.sender.display_picture.url,
+            :class=>'pic-small', :title=>s.object.sender.first_name  ),
+          user_path( s.object.sender ))%>
+        
+      <% end %>
+      <%= content_tag :div, :class=>'rt space-left-10' do  %>
+        <%= s.value :subject, :class=>'left' do %>
+          <%= link_to s.object.subject,
+            user_message_path( current_user,
+            get_parent( s.object.reply_of.nil? ? s.object.id : s.object.reply_of ) ) %>
+        <% end %>
+        <%= s.value :body do %>
+          <%= truncate(s.object.body, :length=>15, :omission => ' ...') %>
+        <% end %>
+      <% end  %>
+    <% end %>
+  <% end %>
+<% end %>
+<%= content_tag :div, :class=>'space-bottom-5 font-10' do %>
+  <%= link_to 'Read all message',
+    user_messages_path( current_user ) %>
+  <%= link_to 'New Message', "users/#{current_user.id}/messages/new", :remote=>true, :class=>'right'  %>
+<% end %>

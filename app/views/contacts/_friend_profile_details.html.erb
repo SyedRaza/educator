@@ -1,0 +1,57 @@
+<% contactgroups=contact_groups(friend.id) %>
+<div class="message-popup">
+  <div style="cursor: pointer" class="cancel-friend-details right">X</div>
+  <%= show_for friend, :class=>"width-100-percent friend-popup" do |u|  %>
+    <div class="left width-20-percent space-right-inner-5 space-right-10 border-color right-border">
+      <% if u.object.display_picture.file? %>
+        <%= image_tag u.object.display_picture.url() , :alt=>'user',:class=>"list-pic-medium" %>
+      <%  else %>
+        <% if u.object.gender == true %>
+          <%= image_tag "male.jpg", :alt=>'user',:class=>"list-pic-medium" %>
+        <% else%>
+          <%= image_tag "female.jpg", :alt=>'female',:class=>"list-pic-medium" %>
+        <% end %>
+      <% end %>
+      <div class="width-20-percent" title="Delete <%= friend.first_name %> <%= friend.last_name %> from your Contacts">
+        <%= link_to "Delete","/users/#{current_user.id}/contacts/#{friend.id}",
+          :confirm => "Are you sure you want to remove this contact",
+          :method=>:delete ,:remote=>true,
+        %>
+      </div>
+    </div>
+
+    <div class="left space-top-5 width-70-percent">
+      <div class="display-inline-block width-100-percent">
+        <%= u.value :first_name, :wrapper_html=>{:class=>'left space-right-5'} %>
+        <%= u.value :last_name, :wrapper_html=>{:class=>'left'} %>
+      </div>
+      <%= u.value :email , :wrapper_html=>{:class=>'left width-100-percent'}%>
+    </div>
+    <div class="left width-70-percent">
+      <% unless contactgroups.empty? %>
+        <div id="friend-groups-token" class="left width-100-percent">
+          <span class="left bold space-top-5">Groups:</span>
+          <% contactgroups.each do |g| %>
+            <li class="token-input-token-facebook"><p><%=g%></p><span class="delete-token">
+                <%= link_to "x","/users/#{current_user.id}/contacts/group/?friend_id=#{friend.id}&group_title=#{g}",
+                  :id=>"#{g}",
+                  :remote=>true %></span></li>
+          <% end %>
+        </div>
+      <% end %>
+      <div class="left width-100-percent">
+        <span class="left bold width-100-percent space-top-5 space-bottom-5">Assign to Group:</span>
+        <%= hidden_field_tag 'friend_id', friend.id %>
+        <select class="combo-box border-reset">
+          <option value=""></option>
+          <%user_groups.each do |g|%>
+            <% if contactgroups.include?(g.title) %>
+            <% else %>
+              <option value="<%=  g.id %>"><%=  g.title %></option>
+            <% end %>
+          <%end%>
+        </select>
+      </div>
+    </div>
+  <% end  %>
+</div>

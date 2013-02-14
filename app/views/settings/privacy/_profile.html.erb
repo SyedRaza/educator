@@ -1,0 +1,146 @@
+
+<%= content_tag :div,
+  :class=>"setting-container" do %>
+  <%= content_tag :div,
+    :class=>"setting-container-top" do %>
+    <%= content_tag :span, "Profile", :class=>"bold"  %>
+    <%= content_tag :span, :class=>"rt" do %>
+      <%= link_to "Change", "#", :class=>"change" %>
+      <%= link_to "Close", "#", :class=>"close" %>
+    <% end %>
+  <% end %>
+
+
+
+  <%= content_tag :div,
+    :class=>"setting-container-form" do %>
+    <%= simple_form_for :profile,
+      :url=>privacy_user_settings_path(current_user),
+      :remote=>true, do |f| %>
+      <%= content_tag :div, :class=>"visibality-box color-dark" do %>
+        <%= f.input :name_visibility,
+          :as=>:select,
+          :collection=>ContactType.all,
+          :label=>"Real Name",
+          :wrapper_html=>{ :class=>'margin-reset' },
+          :label_html=>{ :class=>"field left width-reset" },
+          :input_html=>{ :class=>"select-option right margin-reset" },
+          :selected=>ContactType.find_by_visibility_flag( current_user.name_visibility ).id  %>
+      <% end %>
+
+      <%= content_tag :div, :class=>"visibality-box" do %>
+        <%= f.input :about_me_visibility,
+          :as=>:select,
+          :collection=>ContactType.all,
+          :label=>"Bio/About me",
+          :wrapper_html=>{ :class=>'margin-reset' },
+          :label_html=>{ :class=>"field left width-reset" },
+          :input_html=>{ :class=>"select-option right margin-reset" },
+          :selected=>ContactType.find_by_visibility_flag( current_user.about_me_visibility ).id  %>
+      <% end %>
+
+
+      <%= content_tag :div, :class=>"visibality-box color-dark" do %>
+        <%= f.input :date_of_birth_visibility,
+          :as=>:select,
+          :collection=>ContactType.all,
+          :label=>"Full Birthday",
+          :wrapper_html=>{ :class=>'margin-reset' },
+          :label_html=>{ :class=>"field left width-reset" },
+          :input_html=>{ :class=>"select-option right margin-reset" },
+          :selected=>ContactType.find_by_visibility_flag( current_user.date_of_birth_visibility).id  %>
+      <% end %>
+      <%= content_tag :div, :class=>"visibality-box" do %>
+        <%= f.input :date_of_birth_year_visibility,
+          :as=>:select,
+          :collection=>ContactType.all,
+          :label=>"Birthday year",
+          :wrapper_html=>{ :class=>'margin-reset' },
+          :label_html=>{ :class=>"field left width-reset" },
+          :input_html=>{ :class=>"select-option right margin-reset" },
+          :selected=>ContactType.find_by_visibility_flag( current_user.date_of_birth_year_visibility).id  %>
+      <% end %>
+
+      <%= content_tag :div, :class=>"visibality-box color-dark" do %>
+        <%= f.input :contact_information_visibility,
+          :as=>:select,
+          :collection=>ContactType.all,
+          :label=>"Contact Information",
+          :wrapper_html=>{ :class=>'margin-reset' },
+          :label_html=>{ :class=>"field left width-reset" },
+          :input_html=>{ :class=>"select-option right margin-reset" },
+          :selected=>ContactType.find_by_visibility_flag( current_user.contact_information_visibility ).id  %>
+      <% end %>
+
+
+      <%= content_tag :div, :class=>"visibality-box" do %>
+        <%= f.input :contact_no_visibility,
+          :as=>:select,
+          :collection=>ContactType.all,
+          :label=>"Contact no",
+          :wrapper_html=>{ :class=>'margin-reset' },
+          :label_html=>{ :class=>"field left width-reset" },
+          :input_html=>{ :class=>"select-option right margin-reset" },
+          :selected=>ContactType.find_by_visibility_flag( current_user.contact_no_visibility ).id  %>
+      <% end %>
+
+      <%= content_tag :div, :class=>"visibality-box color-dark" do %>
+        <%= f.input :email_visibility,
+          :as=>:select,
+          :collection=>ContactType.all,
+          :label=>"Email",
+          :wrapper_html=>{ :class=>'margin-reset' },
+          :label_html=>{ :class=>"field left width-reset" },
+          :input_html=>{ :class=>"select-option right margin-reset" },
+          :selected=>ContactType.find_by_visibility_flag( current_user.email_visibility ).id  %>
+      <% end %>
+
+      <%= content_tag :div, :class=>"visibality-box " do %>
+        <%= f.input :website_visibility,
+          :as=>:select,
+          :collection=>ContactType.all,
+          :label=>"Website",
+          :wrapper_html=>{ :class=>'margin-reset' },
+          :label_html=>{ :class=>"field left width-reset" },
+          :input_html=>{ :class=>"select-option right margin-reset" },
+          :selected=>ContactType.find_by_visibility_flag( current_user.website_visibility ).id  %>
+      <% end %>
+
+
+      <%= content_tag :div, :class=>"visibality-box color-dark" do %>
+        <%= f.input :education_history_visibility,
+          :as=>:select,
+          :collection=>ContactType.all,
+          :label=>"Education",
+          :wrapper_html=>{ :class=>'margin-reset' },
+          :label_html=>{ :class=>"field left width-reset" },
+          :input_html=>{ :class=>"select-option right margin-reset" },
+          :selected=>ContactType.find_by_visibility_flag( current_user.education_history_visibility  ).id  %>
+      <% end %>
+
+      <%= content_tag :div, :class=>"visibality-box" do %>
+        <%= f.input :employment_history_visibility,
+          :as=>:select,
+          :collection=>ContactType.all,
+          :label=>"Employment",
+          :wrapper_html=>{ :class=>'margin-reset' },
+          :label_html=>{ :class=>"field left width-reset" },
+          :input_html=>{ :class=>"select-option right margin-reset" },
+          :selected=>ContactType.find_by_visibility_flag( current_user.employment_history_visibility ).id  %>
+      <% end %>
+
+      <%= content_tag :div,
+        :class=>"text-align-center space-top-10 " do  %>
+        <%= f.button 'submit',
+          :value=>"Save",
+          :class=>"margin-reset" %>
+        <%= submit_tag 'Cancel',
+          :type=>'button',
+          :class=>'btn-cancel space-left-5' %>
+      <% end %>
+
+    <% end %>
+
+  <% end %>
+
+<% end %>

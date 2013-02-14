@@ -1,0 +1,15 @@
+<div class="display-block">
+  <div class="display-clear">
+       <span class="space-top-25 font-12"><%= type_of_import.camelize %>  ID</span>
+  </div>
+  <div class="space-left-20 display-clear space-top-10 space-bottom-10">
+       <%= simple_form_for :import_form, :url => contacts_import_path, :remote=>true do |f| %>
+
+         <%= f.input :email, :as=>:string, :input_html=>{ :class=>'api-form-width' } %>
+         <%= f.input :password, :as=>:password, :input_html=>{ :class=>'api-form-width' } %>
+         <%= f.input :type_of_import, :as=>:hidden,:input_html=>{ :value=>type_of_import }  %>
+         <%= f.submit 'import' %> or <a href="#" class="cancel">Cancel</a>
+  </div>
+
+<% end %>
+</div>

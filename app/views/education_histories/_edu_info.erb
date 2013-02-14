@@ -1,0 +1,50 @@
+<%
+@left='left'
+@label='label'
+id = check_user_id( params )
+%>
+<%user.education_histories.each do |edu|%>
+  <%= show_for edu do |s| %>
+
+    <%= s.value :type_of_degree, :wrapper_html=>{:class=>@label}  %>
+    <div class="right-area">
+      <%= s.value :institute_name, :wrapper_html=>{:class=>'bold'} %>
+    </div>
+    <%= s.attribute :degree_conferred %>
+    <%=  s.attribute :specialization %>
+    <%= s.attribute :major_subjects %>
+    <%= s.attribute :my_interest_list, :label=>'My Interest' %>
+
+
+    <div  class="two-column" >
+      <span class="label">Duration</span>
+      <%= s.value :from  %>-
+      <%= s.value :to ,  :if_blank=>"-" %>
+    </div>
+    <% if current_user.id == id %>
+       <span class="action-options ">
+            <dl class="options">
+              <dt>
+                <a href="#">&nbsp;</a>
+              </dt>
+              <dd>
+                <ul>
+                  <li>
+                  <%= link_to 'Edit',"/users/#{s.object.user_id}/education_histories/#{s.object.id}/edit",
+                :remote=>true, :class=>'action edit' %>
+                  </li>
+                  <li>
+                     <%= link_to 'Delete', "/users/#{s.object.user_id}/education_histories/#{s.object.id}",
+                :confirm => "Are you sure you want to delete this education?", :method=>:delete , :remote=>true, :class=>'action delete' %>
+                  </li>
+                 
+                </ul>
+              </dd>
+            </dl>
+          </span>
+      
+    <% end %>
+  <% end %>
+<%end%>
+
+

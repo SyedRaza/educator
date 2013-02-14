@@ -1,0 +1,12 @@
+<ul>
+  <li class="left space-right-inner-10">Posted at 11:00</li>
+  <li class="left space-right-inner-10"><a href="#">Comment</a></li>
+  <li class="left space-right-inner-10"><a href="#">Report</a></li>
+  <li class="left space-right-inner-10"><a href="#"><img class="like" src="/images/like.png"  alt="like" onmouseover="this.src='/images/like-active.png'" onmouseout="this.src='/images/like.png'"/></a></li>
+  <li class="left space-right-inner-10"><a href="#"><img class="un-like" src="/images/dislike.png"  alt="un like" onmouseover="this.src='/images/dislike-active.png'" onmouseout="this.src='/images/dislike.png'" /></a></li>
+  <li class="right">
+    <%= link_to 'View All Comments',"/users/#{user_id}/#{type}/#{type_id}/comments/", :remote=>true, :class=>'view-all-comments action' %>
+    <%= link_to 'Hide Comments',"/users/#{user_id}/#{type}/#{type_id}/comments/?value='true'", :remote=>true, :class=>'hide-comments action' %>
+  </li>
+
+</ul>

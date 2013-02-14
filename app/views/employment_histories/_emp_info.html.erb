@@ -1,0 +1,54 @@
+<%
+@left='bold left single-field'
+@label='label'
+id = check_user_id( params )
+%>
+<%  user.employers.each do |emp| %>
+  <%= show_for emp do |s| %>
+    <div class="label">Employer</div>
+    <div class="right-area profile-heading">
+      <%= s.value :title, :wrapper_html=>{:class=>@left} %>
+      <div class="div-action" >
+        <% if current_user.id == id %>
+          <span class="action-options">
+            <dl class="options">
+              <dt>
+                <a href="#">&nbsp;</a>
+              </dt>
+              <dd>
+                <ul>
+                  <li>
+                    <%= link_to 'Add new position', "/users/#{user.id}/employment_histories/new?show_employer=false&employer_id=#{s.object.id}",
+                      :remote=>true, :class=>'action new right'  %>
+                  </li>
+                  <li>
+                    <%= link_to 'Edit',
+                      "/users/#{user.id}/employers/#{s.object.id}/edit",
+                      :remote=>true, :class=>'action new right' %>
+                  </li>
+                  <li>
+                    <%= link_to 'Delete',"/users/#{user.id}/employers/#{s.object.id}",
+                      :confirm => "Are you sure you want to delete this education?", :method=>:delete ,:remote=>true,
+                      :class=>'action delete right' %>
+                  </li>
+                </ul>
+              </dd>
+            </dl>
+          </span>
+          
+          <a href="#" class="action cancel right">Cancel</a>
+
+
+        <% end %>
+      </div>
+    </div>
+    <div class='employer-position-list info-details' >
+      <% emp.employment_histories.each do |emph| %>
+        <%= render :partial=>'employment_histories/emp_history_info', :locals=>{ :history => emph } %>
+      
+      <% end %>
+    </div>
+
+  <% end %>
+
+<%end%>

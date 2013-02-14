@@ -1,0 +1,20 @@
+<%= simple_form_for :deactivate_account,
+  :url=>account_setting_user_settings_path( current_user ),
+  :remote=>true do |f|
+%>
+  <%= f.input :reasons,
+    :collection=>DeactivateAccount.all, :as=>:radio,
+    :wrapper_html=>{ :class=>'radio-buttons width-reset field-box space-bottom-10' },
+    :input_html=>{ :class=>'display-block'}
+%>
+  <%= f.input :reasons_text,
+    :as=>:text,:label=>'Please Explain further',
+    :wrapper_html=>{ :class=>'field-box space-bottom-10' },
+    :label_html=>{ :class=>'left display-block space-right-15 text-align-right' },
+    :input_html=>{ :class=>'setting-input-field' }%>
+  <%= content_tag :div, :class=>'setting-left-side-content margin-reset' do %>
+
+    <%= f.button 'submit', :value=>'Confrim' %>
+    <%= submit_tag 'Cancel',:type=>'button', :class=>"btn-cancel space-left-5" %>
+  <% end %>
+<% end %>

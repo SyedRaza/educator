@@ -1,0 +1,36 @@
+<%= content_for :css do %>
+  <%= stylesheet_link_tag 'settings/global.css' %>
+<% end %>
+<%= content_for :page_heading do %>
+  <%= content_tag :div,
+    :class=>"heading-blue-medium-white-exlarge heading-inner white" do %>
+    <%= content_tag :span, "Privacy", :class=>"font-18"  %>
+    - Settings
+  <% end %>
+<% end %>
+<%= content_for :right_side_bar do %>
+  <%=  render :partial => 'settings/right_side_bar' %>
+<% end %>
+<%= content_tag :div,
+  :class=>"container-inner-white-exlarge left-border border-color overflow-hidden" do %>
+  <%= content_tag :div, :class=>"space-top-10 space-left-10 space-right-10" do %>
+
+    <%= render :partial=>"/settings/privacy/discussion_board" %>
+
+    <%= render :partial=>"/settings/privacy/profile" %>
+
+    <%= render :partial=>"/settings/privacy/messages" %>
+
+    <%= render :partial=>"/settings/privacy/requests" %>
+
+    <%= render :partial=>"/settings/privacy/contacts" %>
+
+    <%= render :partial=>"/settings/privacy/search" %>
+
+  <% end %>
+<% end %>
+<%= content_tag :div, "", :class=>"border-bottom-gradient" %>
+<%= content_for :js do %>
+  <%= javascript_include_tag 'settings/global.js' %>
+<%end%>
+

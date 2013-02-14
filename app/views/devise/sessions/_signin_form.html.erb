@@ -1,0 +1,37 @@
+<%
+@label_css= 'display-block left text-align-right space-right-inner-10'
+@input_css= 'label border-none'
+@wrapper_css= 'fields-box'
+%>
+<div id="sign-in-form" class="form hide">
+
+  <%= simple_form_for(resource,
+    :as => resource_name,
+    :url => session_path(resource_name)) do |r|   %>
+    <%= devise_error_messages! %>
+    <div class="fields-box">
+
+      <div class="title">&nbsp;</div>
+      <div class="label">
+        <% if session[:confirm].nil? %>
+          <span class="notice message"><%= notice %></span>
+          <span class="alert message"><%= alert %></span>
+        <% else %>
+          <% session[:confirm]=nil %>
+          <span class="notice message">Account Confirmed!</span>
+        <% end %>
+      </div>
+
+      <%= r.input :email, :as=>:string,:label_html=>{ :class=>@label_css },
+        :input_html=>{ :class=>@input_css }, :wrapper_html=>{ :class=>@wrapper_css } %>
+      <%= r.input :password , :label_html=>{ :class=>@label_css },
+        :input_html=>{ :class=>@input_css }, :wrapper_html=>{ :class=>@wrapper_css }%>
+      <div class="welcome-page-link display-block">
+        <%= render :partial => "devise/shared/links" %>
+      </div>
+
+      <%= r.submit 'Sign in' %>
+
+    </div>
+  <% end %>
+</div>

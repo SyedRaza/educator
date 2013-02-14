@@ -1,0 +1,11 @@
+<div class="message-popup space-left-inner-25" >
+  <p class="font-12 bold">Edit Group Name</p>
+  <%= simple_form_for :group_edit, :url=>url_for( :controller=>"contacts", :action=>"group"), :remote=>true do |f| %>
+    <%= f.input :title, :required=> true, :wrapper_html=>{:class=>'space-0 space-inner-0 left'},
+      :input_html=>{:class=>'sinlge-field', :value=>group.title},
+      :label=>false %>
+    <%= f.input :group_id, :as=>:hidden, :input_html=>{:value=>group.id} %>
+    <%= f.submit 'Update', :class=>'space-left-10 left' %>
+    <input id="cancel-button"type="button" class="space-left-5 bottom" value="Cancel" />
+  <% end %>
+</div>

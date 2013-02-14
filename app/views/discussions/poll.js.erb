@@ -1,0 +1,3 @@
+$('#discussion-posting-container').html('<%= escape_javascript( render( :partial=>'poll_form')) %>');
+$('#discussion-posting-container').addClass('left-border right-border bottom-border space-top-inner-10 border-color');
+$('.options-field:last').after("<a href='#' class='add-option'>Add an other option</a>");

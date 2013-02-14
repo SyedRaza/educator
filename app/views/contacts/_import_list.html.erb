@@ -1,0 +1,96 @@
+<%unless defined?(not_member_list).nil? %>
+  <div id="not-member-list-<%=current_user.id%>" class="left space-left-25 container member-list space-right-20">
+    <%= simple_form_for :not_member_list,:url => contacts_import_path, :remote=>true do |f| %>
+      <div class="heading-green-small-gray-medium heading-inner white">
+        <span class="font-12">Not Member list</span> <span id="not-member-count" class="font-10">(<%= not_member_list.count %>)</span>
+      </div>
+      <div id="not-member-container">
+        <div class="left container-inner-gray-medium">
+          <label class="width-100-percent float-none">
+            <div class="display-block space-bottom-inner-15 space-left-inner-15">
+              <%= check_box_tag :checked_all, :not_member,:false, :class=>"left" %>
+              <span class="left dark font-11">Select all</span>
+            </div>
+          </label>
+          <div class="border-bottom-gradient-shadow space-bottom-0">&nbsp;</div>
+        </div>
+        <div class="scrollable-list-container container-inner-gray-medium display-clear">
+          <% not_member_list.each do |u|%>
+            <div class="container-inner-gray-medium display-inline-block  space-inner-5">
+              <label class="width-100-percent float-none">
+                <%=  check_box_tag 'not_member_list[]', "#{u[:first_name]}-#{u[:email]}",:false, :class=>"checked_email left" %>
+                <div class="details width-80-percent left display-block">
+                  <div class="left space-right-10">
+                    <%= u[:first_name] %>
+                    <%= u[:last_name] %>
+                  </div>
+                  <div class="left blue">
+                    <%= u[:email] %>
+                  </div>
+                </div>
+              </label>
+            </div>
+            <div class="border-bottom-gradient-shadow space-bottom-0">&nbsp;</div>
+          <% end %>
+        </div>
+        <div class="container-inner-gray-medium space-top-inner-10 space-bottom-inner-10 space-left-inner-15 width-100-percent">
+          <%= f.submit 'Invite Friends' ,:class=>'space-left-10' %></div>
+        <% end %>
+    </div>
+  </div>
+<% end %>
+
+<%unless users.nil? or users.empty? %>
+  <div id="members-list-<%=current_user.id%>" class="left container member-list space-left-20">
+    <%= simple_form_for :users,:url => contacts_import_path, :remote=>true do |f| %>
+      <div class="heading-green-small-gray-medium heading-inner white">
+        <span class="font-12">Already Member list</span> <span id="member-count" class="font-10">(<%= users.count %>)</span>
+      </div>
+      <div id="member-container">
+        <div class="left container-inner-gray-medium">
+          <label class="width-100-percent float-none">
+            <div class="display-block space-bottom-inner-15 space-left-inner-15">
+              <%= check_box_tag :checked_all_member, :already_member,:false, :class=>"left" %>
+              <span class="left dark font-11">Select all</span>
+            </div>
+          </label>
+          <div class="border-bottom-gradient-shadow space-bottom-0">&nbsp;</div>
+        </div>
+
+        <div class="scrollable-list-container container-inner-gray-medium display-clear">
+          <%  users.each do |usr|%>
+            <%= show_for usr do |u|  %>
+              <label class="width-100-percent float-none">
+                <div class="container-inner-gray-medium space-bottom-0">
+                  <%= check_box_tag 'already_member[]', u.object.id , :false, :class=>" left space-top-10 checked_id" %>
+                  <div class="space-left-5 space-left-inner-5 left-border border-color">
+                    <% if u.object.display_picture.file? %>
+                      <%= image_tag u.object.display_picture.url() , :alt=>'user',:class=>"list-pic left space-right-10" %>
+                    <%  else %>
+                      <% if u.object.gender == true %>
+                        <%= image_tag "male.jpg", :alt=>'user',:class=>"list-pic left space-right-10"  %>
+                      <% else%>
+                        <%= image_tag "female.jpg", :alt=>'female',:class=>"list-pic left space-right-10"  %>
+                      <% end %>
+                    <% end %>
+
+                    <div class="details left space-top-10 display-block">
+                      <a href="/users/<%= u.object.id %>">
+                        <%= u.value :first_name, :wrapper_html=>{:class=>'left space-right-5'} %>
+                        <%= u.value :last_name,:wrapper_html=>{:class=>'left'} %>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </label>
+              <div class="border-bottom-gradient-shadow space-bottom-0">&nbsp;</div>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="container-inner-gray-medium space-top-inner-10 space-bottom-inner-10 space-left-inner-15 ">
+          <%= f.submit 'Send Friend Request' ,:class=>'space-left-10' %>
+        </div>
+      <%end%>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,24 @@
+$('div#employment_history_<%= params[:id]%>').parent().hide('blind');
+$('div#employment_history_<%= params[:id]%>').hide('blind', function(){
+  $(this).parent().prepend("<%=escape_javascript(render :partial => 'form') %>").show('blind', function(){
+    $('#employment_history_grade_list').tokenInput('/employment_histories/search.json', {
+      extraParam: 'type',
+      theme: 'facebook',
+      extraValue: 'grade'
+    });
+    $('#employment_history_subject_list').tokenInput('/employment_histories/search.json', {
+      extraParam: 'type',
+      theme: 'facebook',
+      extraValue: 'subjects',
+      preventDuplicates: true
+     });
+    $('#employment_history_my_interest_list').tokenInput('/employment_histories/search.json', {
+      extraParam: 'type',
+      theme: 'facebook',
+      extraValue: 'my_interest',
+      preventDuplicates: true
+    });
+    update_live_events();
+  });
+});
+set_options_css();

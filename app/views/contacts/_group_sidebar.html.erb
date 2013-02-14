@@ -1,0 +1,9 @@
+<div class="heading-green-small-white-small heading-inner white">Groups</div>
+<div class="container-inner-white-small left-border border-color space-bottom-inner-25 overflow-hidden">
+  <% user_groups.each do |g| %>
+    <div id="search-friend" class="links green-background space-top-5 space-left-inner-5">
+      <span><%= link_to "#{g.title}", "/users/#{current_user.id}/contacts/group/?group_name=#{g.title}"%>
+      </span>
+    </div>
+  <% end %>
+</div>

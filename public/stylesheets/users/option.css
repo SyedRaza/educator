@@ -1,0 +1,55 @@
+/* 
+    Document   : option
+    Created on : Jun 14, 2011, 2:59:16 PM
+    Author     : kamal
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+.show_for > div{
+}
+.action-options{
+    position: absolute;
+}
+
+dl.options {
+    border: 1px solid transparent;
+    display: block;
+    width: 19px;
+}
+dl.options > dt > a {
+    background-image: url("../../images/gear-green.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    border: medium none;
+    display: block;
+    height: 19px;
+    outline: medium none;
+    width: 100%;
+}
+dl.options dd {
+    position: absolute;
+}
+dl.options dd > ul a {
+    color: #626463;
+}
+dl.options dd > ul {
+    background-color: #EDF2D6;
+    border: 1px solid #AAAAAA;
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+    display: display;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right: -151px;
+    width: 150px;
+    z-index: 100;
+}
+dl.options dd>ul>li{
+    clear: both;
+}

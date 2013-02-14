@@ -1,0 +1,65 @@
+<% content_for :css do %>
+  <%= stylesheet_link_tag "messages/index" %>
+<% end %>
+<%= content_for :right_side_bar do %>
+  <%=  render :partial => 'messages/right_side_bar' %>
+<% end %>
+
+<%= content_for :page_heading do %>
+  <div class="heading-blue-small-white-exlarge heading-inner white">Messages</div>
+<% end %>
+<div class="container-inner-white-exlarge left-border border-color overflow-hidden">
+
+  <div class="display-inline-block overflow-hidden right display-clear space-right-15 space-left-15 space-bottom-10">
+    <input type="button" class="right" value="New Message" id="new-message-button" />
+
+
+
+    <%= content_tag :div, :class=>"side-panel-search right space-right-10" do %>
+      <%= simple_form_for :message_search, :url=>'message_search/',
+        :html=>{:class=>'space-inner-0'}, :remote=>true do |f| %>
+        <%= f.input :search, :label=>false ,:wrapper_html=>{:class=>'text-field' },
+          :input_html=>{
+          :onblur=>"if (this.value == '') this.value ='Search by Message'",
+          :onfocus=>"this.value=''",
+          :value=>'Search by Message'
+        } %>
+        <%= content_tag :div, :class=>'icon' do %>
+          <%= f.submit "Search", :type=>:image, :src=>'/images/icon-search.jpg' %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="display-clear display-block listing-top-heading-bar green-background space-left-inner-5 space-right-inner-5 space-right-10 space-left-10">
+
+   
+    <%= select_tag "", options_for_select(["","All", "Unread", "Read"]),
+      :class=>"drop-down left" %>
+
+    <div class="links left space-top-inner-5">
+      <%= link_to 'Delete', "#", :class=>:delete, :confirm => "Are you sure?" %>
+
+    </div>
+    <div class="right space-top-inner-5">
+<%#= page_entries_info @messages_page  %>
+
+    </div>
+
+
+  </div>
+
+  <div class="space-top-inner-10">
+
+
+
+    <div class="message-board">
+      <%= render :partial=>'messages/message_board' %>
+    </div>
+
+<%#= will_paginate @messages_page %>
+  </div>
+</div>
+<%= content_tag :div, '', :class=>'border-bottom-gradient' %>
+<% content_for :js do %>
+  <%= javascript_include_tag "messages/index" %>
+<% end %>

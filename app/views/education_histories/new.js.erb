@@ -1,0 +1,13 @@
+$('div#education-history-<%= current_user.id%> > .info-details').hide('blind',function(){
+  $(this).prepend('<%=escape_javascript(render :partial => 'form') %>').show('blind',function(){
+    $('#education_history_my_interest_list')
+      .tokenInput('/education_histories/search.json', {
+      theme: 'facebook',
+      extraParam: 'type',
+      extraValue: 'my_interest'
+    });
+  });
+})
+$('a.action.new.education-history').hide().siblings('a.cancel').show();
+
+set_options_css();

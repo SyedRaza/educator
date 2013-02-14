@@ -1,0 +1,20 @@
+<%
+@label_css= 'display-block left text-align-right space-right-inner-10'
+@input_css= 'label border-none'
+@wrapper_css= 'fields-box'
+%>
+<%= content_tag :div, :class=>'form', :id=>'lost-pass-email' do %>
+  <%= simple_form_for(resource, :as => resource_name,
+    :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+      <%= content_tag :div, :class=>'fields-box' do %>
+
+        <%= f.input :email, :as=>:string, :label_html=>{ :class=>@label_css },
+          :input_html=>{ :class=>@input_css }, :wrapper_html=>{ :class=>@wrapper_css } %>
+
+        <%= f.submit 'Reset' %>
+      <% end %>
+    <% end %>
+  <% end %>
+  <%= content_for :js do %>
+    <%= javascript_include_tag 'login.js' %>
+  <% end %>

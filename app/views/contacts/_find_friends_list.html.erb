@@ -1,0 +1,26 @@
+<% unless  members.nil? %>
+<% members.each do |m| %>
+    <div class="display-inline-block width-30-percent left space-bottom-10">
+      <div class="left width-100-percent space-left-10">
+        <% if m.display_picture.file? %>
+          <%= image_tag m.display_picture.url() , :alt=>'user',:class=>"list-pic-medium left" %>
+        <%  else %>
+          <% if m.gender == true %>
+            <%= image_tag "male.jpg", :alt=>'user',:class=>"list-pic-medium left"  %>
+          <% else%>
+            <%= image_tag "female.jpg", :alt=>'female',:class=>"list-pic-medium left"  %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="left space-top-5 width-90-percent">
+        <a href="/users/<%= m.id %>" class="dark" ><%= m.first_name %> <%= m.last_name %></a>
+      </div>
+      <%#*<div class="left width-90-percent">%>
+        <%#*<a href="#" class="underline">tagi1, tagi2, tagi3</a>%>
+      <%#*</div>%>
+      <div class="left width-90-percent">
+        <%= image_tag "plus-icon.gif", :alt=>'plus' %><a href="/users/<%= m.id  %>/requests/new" id="add-contact" data-remote="true"> add as a contact</a>
+      </div>
+    </div>
+  <% end %>
+<% end %>

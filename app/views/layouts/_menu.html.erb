@@ -1,0 +1,25 @@
+<nav class="font-13">
+  <ul class="main-nav">
+    <li>
+      <a href="/users/<%= current_user.id %>">
+        <img src="/images/icon-my-profile.gif" />
+        My Profile
+      </a>
+    </li>
+    <li>
+      <a href="/users/<%= current_user.id %>/messages">
+        <img src="/images/icon-messages.gif" />      
+        Messages 
+      </a>
+      <ul>
+        <li class="sub-nav">
+          <%= render :partial => '/dashboard/messages' %>
+        </li>
+      </ul>
+    </li>
+    <li>
+    </li>
+    <li><a href="/archives"><img src="/images/icon-archives.gif" />Archives</a></li>
+  </ul>
+</nav>
+

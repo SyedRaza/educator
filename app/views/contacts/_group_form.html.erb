@@ -1,0 +1,18 @@
+<div class="message-popup" >
+  <span class="font-12 bold">Create a new Group for contacts</span>
+  <%= simple_form_for :group, :url=>url_for( :controller=>"contacts", :action=>"group"), :remote=>true do |f| %>
+    <%= f.input :group_name, :as=>:string %>
+    <div class="width-100-percent left">
+      <span class="font-12 space-10"> Select Contacts you want to add it to this new group</span>
+      <label for="group_contacts" class="check_boxes optional  font-14 bold">Contacts</label>
+      <%= f.input :contacts,:label=>false,
+        :input_html=>{:class=>'hide'},
+        :as=> :check_boxes,
+        :collection=>current_user.companions,
+        :label_method=>:user_description,
+        :value_method=>:id,
+        :wrapper_html=>{:id=>'contact_check_boxes'}, :required=>false %>
+    </div>
+    <%= f.submit "Create" %> <input id="cancel-button"type="button" class="bottom" value="Cancel" />
+  <% end %>
+</div>

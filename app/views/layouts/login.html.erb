@@ -1,0 +1,463 @@
+<%#= render 'form' %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Educator</title>
+    <%= stylesheet_link_tag 'reset','application','devise/index'%>
+    <%= csrf_meta_tag %>
+
+  </head>
+
+  <body>
+
+    <%unless @browser_message.nil?%>
+      <div id="browser-notification-container">
+        <%= @browser_message %>
+        or
+        <br />
+        Install latest version of <img src="/images/chrome.png" alt="Chrome" /><strong><a href="http://www.google.com/chrome/">Chrome</a></strong>,
+        <img src="/images/firefox.png" alt="Firefox" /><strong><a href="http://www.mozilla.com/en-US/firefox/fx/">Firefox</a></strong>,
+        <img src="/images/ie.png" alt="Internet Explorer" /><strong><a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home" >Internet Explorer</a></strong>,
+        <img src="/images/safari.png" alt="Safari" /><strong><a href="http://www.apple.com/safari/download/" >Safari</a></strong> or
+        <img src="/images/opera.png" alt="Opera" /><strong><a href="http://www.opera.com/download/" >Opera</a></strong>
+      </div>
+    <%end%>
+
+    <%= render :partial=>'layouts/header' %>
+  <section id="section">
+    <header id="header">
+      <div class="header-slider left"></div>
+      <div class="header-signup right">
+        <h1 class="bottom-border border-light-green space-bottom-inner-5">Sign Up it’s free and completely confidential</h1>
+        <%= yield %>
+      </div>
+    </header>
+
+    <section id="section">
+
+
+      <article id="article">
+        <!-- ########################## Left Panel Start Here ########################## -->
+        <aside id="aside">
+
+          <!-- Left Educators Area Start Here -->
+          <div class="container">
+
+            <div class="heading-blue-small-gray-medium heading-inner white">Educators</div>
+            <div class="container-inner-gray-medium left-border border-color">
+              <span class="orange font-13 bold space-bottom-inner-15 space-left-10 space-right-10 display-block border-bottom-shadow">Meet and get to know educators from around the world.</span>
+
+              <div class="space-inner-10 space-bottom-inner-15 overflow-hidden border-bottom-gradient-shadow">
+                <div class="pic-small left space-right-10 border-dark"><img alt="picture" src="/images/pic-lavande.jpg" /></div>
+                <div class="left"><span class="blue bold display-block"><a href="#">lavande</a></span>
+                  <span>Lorem ipsum dolor site amet ...</span></div>
+              </div>
+
+              <div class="space-inner-10 space-bottom-inner-15 overflow-hidden border-bottom-gradient-shadow">
+                <div class="pic-small left space-right-10 border-dark"><img alt="picture" src="/images/pic-teresa.jpg" /></div>
+                <div class="left"><span class="blue bold display-block"><a href="#">teresa</a></span>
+                  <span>Lorem ipsum dolor site amet ...</span></div>
+              </div>
+
+              <div class="space-inner-10 space-bottom-inner-15 overflow-hidden">
+                <div class="pic-small left space-right-10 border-dark"><img alt="picture" src="/images/pic-Maria.jpg" /></div>
+                <div class="left"><span class="blue bold display-block"><a href="#">Maria</a></span>
+                  <span>Lorem ipsum dolor site amet ...</span></div>
+              </div>
+
+            </div>
+            <div class="border-bottom-gradient"></div>
+
+          </div>
+          <!-- Left Educators Area Close Here -->
+
+          <!-- Left Feeback/Testimonials Area Start Here -->
+          <div class="container">
+
+            <div class="heading-blue-small-gray-medium heading-inner white">Feeback/Testimonials</div>
+            <div class="container-inner-gray-medium left-border border-color">
+
+              <div class="textimonial-scroll-box">
+
+                <span class="orange font-13 bold space-bottom-inner-15 space-left-10 space-right-10 display-block border-bottom-shadow">What people say about educatorsplanet</span>
+
+
+                <div class="textimonial-box">
+                  <div class="pic left border-dark">
+                    <img alt="picture" src="/images/pic-testimonial-1.jpg" />
+                  </div>
+                  <div class="details left display-block">
+                    <span class="display-block space-bottom-inner-10">Lorem ipsum dolor sit amet,
+                      consectetur id congue risus fring illa sit amet Lorem ipsum dolor sit amet consectetur id
+                      congue risus fring...</span>
+                    <span class="blue italic bold display-block">Derrick Daye</span>
+                    <span class="italic font-11">Toddlers Good Shepherd School, Austin, Texas</span>
+                  </div>
+                </div>
+
+                <div class="border-bottom-gradient-shadow">&nbsp;</div>
+
+
+
+
+                <div class="textimonial-box">
+                  <div class="pic left border-dark">
+                    <img alt="picture" src="/images/pic-testimonial-2.jpg" />
+                  </div>
+                  <div class="details left display-block"><span class="display-block space-bottom-inner-10">Lorem ipsum dolor sit amet,
+                      consectetur id congue risus fring illa sit amet Lorem ipsum dolor sit amet consectetur id
+                      congue risus fring...</span>
+                    <span class="blue italic bold display-block">Dr. Tammy Lenski</span>
+                    <span class="italic font-11"> Henry County School District, Georgia</span></div>
+                </div>
+
+              </div>
+
+
+
+
+
+
+
+
+            </div>
+            <div class="border-bottom-gradient"></div>
+
+          </div>
+          <!-- Left Feeback/Testimonials Area Close Here -->
+
+          <!-- Left Groups Area Close Here -->
+          <div class="container">
+
+            <div class="heading-blue-small-gray-medium heading-inner white">Groups</div>
+            <div class="container-inner-gray-medium left-border border-color">
+              <div class="overflow-hidden display-block space-inner-10 border-bottom-gradient-shadow">
+                <div class="group-icon left space-right-inner-10 right-border border-color">
+                  <img alt="Geometery" src="/images/icon-geometery.jpg" />
+                </div>
+                <div class="left space-left-inner-5"><span class="blue bold">
+                    <a href="#">Geometery</a> :</span> Lorem ipsum dolor sit
+                </div>
+              </div>
+              <div class="overflow-hidden display-block space-inner-10 border-bottom-gradient-shadow">
+                <div class="group-icon left space-right-inner-10 right-border border-color">
+                  <img alt="Geometery" src="/images/icon-physics.jpg" />
+                </div>
+                <div class="left space-left-inner-5"><span class="blue bold">
+                    <a href="#">Physics</a> :</span> Lorem ipsum dolor sit
+                </div>
+              </div>
+              <div class="overflow-hidden display-block space-inner-10 border-bottom-gradient-shadow">
+                <div class="group-icon left space-right-inner-10 right-border border-color">
+                  <img alt="Geometery" src="/images/icon-science.jpg" />
+                </div>
+                <div class="left space-left-inner-5"><span class="blue bold">
+                    <a href="#">Science</a> :</span> Lorem ipsum dolor sit
+                </div>
+              </div>
+              <div class="overflow-hidden display-block space-inner-10">
+                <div class="group-icon left space-right-inner-10 right-border border-color">
+                  <img alt="Geometery" src="/images/icon-maths.jpg" />
+                </div>
+                <div class="left space-left-inner-5">
+                  <span class="blue bold"><a href="#">Maths</a> :</span> Lorem ipsum dolor sit
+                </div>
+              </div>
+            </div>
+            <div class="border-bottom-gradient"></div>
+
+          </div>
+          <!-- Left Groups Area Close Here -->
+
+
+
+        </aside>
+        <!-- ########################## Left Panel Close Here ########################## -->
+
+        <!-- ########################## Middle Panel Start Here ########################## -->
+        <article id="article-mid">
+          <div class="container">
+
+
+            <div class="heading-blue-small-white-large heading-inner white">Discussion Board</div>
+            <div class="container-inner-white-large left-border border-color overflow-hidden">
+              <span class="orange font-13 bold space-bottom-inner-15 space-left-10 space-right-10 display-block border-bottom-shadow">Share your thoughts and questions and involve others in discussions.</span>
+
+              <div class="discussion-board-box space-inner-10 overflow-hidden">
+                <div class="discussion-board-box-left left space-right-15 border border-dark">
+                  <img alt="" src="/images/pic-1.jpg"/>
+                </div>
+                <div class="discussion-board-box-right left">
+                  <span class="blue bold display-block space-bottom-inner-5"><a href="#">Mark Martin</a></span>
+                  <span class="display-block space-bottom-inner-5">Lorem ipsum dolor sit amet, consectetur
+                    adipiscing id congue risus fringilla sit amet...</span>
+
+                  <div class="discussion-board-box-time-n-tabs">
+                    <ul>
+                      <li class="gray-light">Time at 11:00 </li>
+                      <li><a href="">Comment</a></li>
+                      <li><a href="">Report</a></li>
+                      <li><a href="">View Comments</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class=" discussion-board-box-enter-message space-bottom-inner-10 space-right-inner-10 space-left-inner-10 overflow-hidden">
+                <input type="text" class="border-color text"></div>
+
+              <div class="green-background display-block overflow-hidden space-bottom-10 space-right-10 space-left-10 space-inner-10">
+                <div class="discussion-board-comments-box-left space-right-10 left"><div class="pic border border-dark"><img src="/images/pic-1.jpg"></div></div>
+                <div class="left discussion-board-comments-box-right">
+                  <span class="blue bold"><a href="#">Norbert</a></span> Lorem ipsum dolor sit amet, consectetur id congue risus fringilla
+                  sit amet...
+
+                  <div class="discussion-board-box-time-n-tabs space-top-inner-5">
+                    <ul>
+                      <li class="gray-light">Time at 11:00 </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="green-background display-block overflow-hidden space-bottom-10 space-right-10 space-left-10 space-inner-10">
+                <div class="discussion-board-comments-box-left space-right-10 left"><div class="pic border border-dark"><img src="/images/pic-1.jpg"></div></div>
+                <div class="left discussion-board-comments-box-right">
+                  <span class="blue bold"><a href="#">Norbert</a></span> Lorem ipsum dolor sit amet, consectetur id congue risus fringilla
+                  sit amet...
+
+                  <div class="discussion-board-box-time-n-tabs space-top-inner-5">
+                    <ul>
+                      <li class="gray-light">Time at 11:00 </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bottom-border border-color space-inner-10"></div>
+
+              <div class="discussion-board-box space-inner-10 space-top-inner-20 overflow-hidden">
+                <div class="discussion-board-box-left left space-right-15 border border-dark">
+                  <img alt="" src="/images/pic-1.jpg" /></div>
+                <div class="discussion-board-box-right left">
+                  <span class="blue bold display-block space-bottom-inner-5"><a href="#">Mark Martin</a></span>
+                  <span class="display-block space-bottom-inner-5">Lorem ipsum dolor sit amet, consectetur
+                    adipiscing id congue risus fringilla sit amet...</span>
+
+                  <div class="discussion-board-box-time-n-tabs">
+                    <ul>
+                      <li class="gray-light">Time at 11:00 </li>
+                      <li><a href="">Comment</a></li>
+                      <li><a href="">Report</a></li>
+                      <li><a href="">View Comments</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class=" discussion-board-box-enter-message space-bottom-inner-10 space-right-inner-10 space-left-inner-10 overflow-hidden">
+                <input type="text" class="border-color text" />
+              </div>
+              <div class="green-background display-block overflow-hidden space-bottom-10 space-right-10 space-left-10 space-inner-10">
+                <div class="discussion-board-comments-box-left space-right-10 left">
+                  <div class="pic border border-dark">
+                    <img src="/images/pic-1.jpg" />
+                  </div>
+                </div>
+                <div class="left discussion-board-comments-box-right">
+                  <span class="blue bold"><a href="#">Norbert</a></span> Lorem ipsum dolor sit amet, consectetur id congue risus fringilla
+                  sit amet...
+
+                  <div class="discussion-board-box-time-n-tabs space-top-inner-5">
+                    <ul>
+                      <li class="gray-light">Time at 11:00 </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+            </div>
+            <div class="border-bottom-gradient"></div>
+
+
+          </div>
+
+
+
+          <div class="container">
+
+
+            <div class="heading-blue-small-white-large heading-inner white">Questions</div>
+            <div class="container-inner-white-large left-border border-color overflow-hidden">
+
+              <div class="discussion-board-questions">
+                <div class="discussion-board-questions-icon right-border border-color">
+                  <img alt="question" src="/images/icon-question.jpg" />
+                </div>
+                <div class="discussion-board-questions-answers">
+                  <span class="blue bold display-block space-bottom-inner-5">Mark Martin</span>
+                  <span class="display-block space-bottom-inner-5">Lorem ipsum dolor sit amet, consectetur
+                    adipiscing id congue risus fringilla sit amet...</span>
+
+
+
+                  <div class="discussion-board-questions-answers-bottom-fields space-top-inner-5">
+                    <img alt="" src="/images/q-a-1.jpg" />
+                  </div>
+                  <div class="discussion-board-questions-answers-bottom-fields space-top-inner-5">
+                    <img alt="" src="/images/q-a-2.jpg" style="width: 273px; height: 20px;" />
+                  </div>
+                  <div class="discussion-board-questions-answers-bottom-fields space-top-inner-5">
+                    <img alt="" src="/images/q-a-3.jpg">
+                  </div>
+                  <div class="discussion-board-questions-answers-bottom-fields space-top-inner-5">
+                    <img alt="" src="/images/q-a-4.jpg" />
+                  </div>
+
+
+
+                </div>
+              </div>
+
+            </div>
+            <div class="border-bottom-gradient"></div>
+
+
+          </div>
+
+
+
+        </article>
+        <!-- ########################## Middle Panel Close Here ########################## -->
+      </article>
+
+
+      <!-- ########################## Right Panel Start Here ########################## -->
+      <aside id="aside">
+        <div class="container">
+          <div class="heading-green-small-white-small heading-inner white">Show Case</div>
+          <div class="container-inner-white-small left-border border-color overflow-hidden">
+            <span class="orange font-13 bold space-bottom-inner-15 space-left-10 space-right-10 display-block border-bottom-shadow">
+              Get results according to your interests and personality.</span>
+
+            <div class="space-10 font-11">
+              <div class="space-bottom-inner-5"><span class="space-right-inner-5 blue">Title:</span> Title of Showcase</div>
+              <div class="space-bottom-inner-5"><span class="space-right-inner-5 blue">Subject:</span>Physics</div>
+              <div class="space-bottom-inner-5"><span class="space-right-inner-5 blue">Grade</span>8th</div>
+              <div class="space-bottom-inner-5"><span class="space-right-inner-5 blue bold">Abstract:</span> Lorem ipsum dolor
+                sit amet, consectetur adipiscing elit. Duis dignissim semper mauris...</div>
+
+              <div class="space-bottom-inner-10 space-top-inner-5"><img alt="" src="/images/video.jpg" /></div>
+
+              <div class="font-12 space-bottom-5"><span class="bold space-right-inner-5">Contributed by:</span><span class="blue">William</span></div>
+
+              <div class="font-12 space-bottom-5"><span class="bold space-right-inner-5">Tags: </span><span class="blue">
+                  <a href="">Math</a> , <a href="#">Algebra</a> , K12 , <a href="#">High School</a></span></div>
+
+            </div>
+
+
+          </div>
+          <div class="border-bottom-gradient"></div>
+        </div>
+
+
+        <div class="container">
+          <div class="heading-green-small-white-small heading-inner white">Archive</div>
+          <div class="container-inner-white-small left-border border-color overflow-hidden">
+            <span class="orange font-13 bold space-bottom-inner-15 space-left-10 space-right-10 display-block border-bottom-shadow">
+              View and Share educationsal documents, videos and much more...!</span>
+
+
+            <div class="side-panel-search space-top-10 space-left-10">
+              <div class="text-field"><input type="text" value="" /></div>
+              <div class="icon"><a href="#"><img src="/images/icon-search.jpg" /></a></div>
+            </div>
+            <div class="side-panel-search-bottom-tabs">
+              <div class="lt"><a href="#">Top Archive</a></div>
+              <div class="rt"><a href="#">Most Recent (17)</a></div>
+            </div>
+
+
+            <div class="space-10 font-11">
+              <div class="space-bottom-inner-5"><span class="space-right-inner-5 blue">Title:</span> Title of Showcase</div>
+              <div class="space-bottom-inner-5"><span class="space-right-inner-5 blue">Subject:</span>Physics</div>
+              <div class="space-bottom-inner-5"><span class="space-right-inner-5 blue">Grade</span>8th</div>
+              <div class="space-bottom-inner-5"><span class="space-right-inner-5 blue bold"><a href="#">Abstract:</a></span> Lorem ipsum dolor
+                sit amet, consectetur adipiscing elit. Duis dignissim semper mauris...</div>
+
+              <div class="space-bottom-inner-10 space-top-inner-5"><img alt="" src="/images/video.jpg" /></div>
+
+              <div class="font-12 space-bottom-5"><span class="bold space-right-inner-5">Contributed by:</span><span class="blue"><a href="#">William</a></span></div>
+
+              <div class="font-12 space-bottom-5"><span class="bold space-right-inner-5">Tags: </span><span class="blue">
+                  <a href="">Math</a> , <a href="#">Algebra</a> , K12 , <a href="#">High School</a></span></div>
+
+            </div>
+
+
+          </div>
+          <div class="border-bottom-gradient"></div>
+        </div>
+
+
+
+      </aside>
+      <!-- ########################## Right Panel Close Here ########################## -->
+    </section>
+
+
+
+  </section>
+  <%= render :partial=>'layouts/footer' %>
+
+
+
+  <%= javascript_include_tag "jquery.min" %>
+  <%= javascript_include_tag "jquery-ui-1.8.min" %>
+  <%= javascript_include_tag "jquery.expander" %>
+  <%= javascript_include_tag "rails" %>
+  <%= javascript_include_tag "application" %>
+
+
+  <script type="text/javascript">
+
+    document.createElement('header');
+    document.createElement('hgroup');
+    document.createElement('nav');
+    document.createElement('menu');
+    document.createElement('section');
+    document.createElement('article');
+    document.createElement('aside');
+    document.createElement('footer');
+
+
+    $('#sign-up-link').live('click',function(e){
+      $('#sign-in-form').hide('blind',function(){
+        $('#sign-up-form').show('blind');
+      });
+      
+      $(this).hide().siblings('#sign-in-link').show()
+      $('.message').html('')
+      e.preventDefault();
+    });
+
+    $('#sign-in-link').live('click',function(e){
+      $('#sign-up-form').hide('blind',function(){
+        $('#sign-in-form').show('blind');
+      });
+      if($('#sign-in-form').length!=0){ e.preventDefault();}
+      $(this).hide().siblings('#sign-up-link').show()
+      $('.message').html('')
+      
+    });
+  </script>
+  <%= yield  :js   %>
+</body>
+</html>
+

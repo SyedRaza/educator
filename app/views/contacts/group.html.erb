@@ -1,0 +1,36 @@
+<%= content_for :right_side_bar do %>
+  <%= render :partial => 'contacts/right_side_bar' %>
+  <%= content_tag :div, :id=>'compact-contact-side-bar', :class=>'group-right-sidebar' do %>
+    <%= render :partial => 'contacts/group_sidebar' %>
+  <% end %>
+<%end%>
+<%= content_for :css do %>
+  <% stylesheet_link_tag 'contacts/index' %>
+<% end %>
+
+<div id="contact-info-container-<%=  current_user.id%>">
+  <%= content_for :page_heading do %>
+    <div class="heading-blue-medium-white-exlarge text-capitalize heading-inner white"><div id="title-group" class="left"><span class="font-18"><%=@group.title %></span> - Groups</div>
+      <% if @group.default_groups==false %>
+        <div class="right">
+          <%= link_to "Edit", "/users/#{current_user.id}/contacts/group/?edit=true&group_id=#{@group.id}", :remote=>true, :class=>"group-edit-form blue" %>
+          <span class="blue">/</span>
+          <%= link_to "Delete", "/users/#{current_user.id}/contacts/group/?delete=true&group_id=#{@group.id}", :confirm => "Are you sure you want to Delete this group", :remote=>true, :class=>"blue" %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+  <div class="container-inner-white-exlarge left-border border-color overflow-hidden">
+    <div id="contact-list-container-<%= current_user.id %>" >
+      <%=render :partial=>'group_contacts_listing',:locals=>{ :list=>@user_list, :group=>@group} %>
+    </div>
+  </div>
+</div>
+<div id="new-pop-container"></div>
+<div class="friends-profile-details"></div>
+
+<div class="border-bottom-gradient"></div>
+
+<%= content_for :js do %>
+  <%= javascript_include_tag 'contacts/index.js' %>
+<% end %>

@@ -1,0 +1,16 @@
+<div id="employment-history-<%=current_user.id%>" class="info-section">
+  <div class="profile-heading space-bottom-10 green-background">
+    <div class="title">Employment History</div>
+    <div class="actions" id="employment-history-actions">
+      <% if @relation_type == :self_profile %>
+        <a href="#" class="action cancel employment-history">Cancel</a>
+        <%= link_to 'Add a new Job ',
+          "/users/#{@user.id}/employment_histories/new",
+          :remote=>true, :class=>'action new employment-history' %>
+      <% end %>
+    </div>
+  </div>
+  <div class="info-details">
+    <%= render :partial=>'employment_histories/emp_info', :locals=>{ :user=> @user } %>
+  </div>
+</div>

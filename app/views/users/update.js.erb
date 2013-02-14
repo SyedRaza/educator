@@ -1,0 +1,5 @@
+$('#basic-information-actions > .action.edit').show().siblings('a.action.cancel').hide();
+$('div#user_<%= params[:id] %>')
+.hide('blind').parents('.info-details').hide('blind')
+.html("<%=escape_javascript(render :partial=>'users/basic_info', :locals=>{:user=>@user}) %>").show('blind')
+$('div#user-compact-info').html("<%=escape_javascript(render :partial=>'users/compact_info') %>");

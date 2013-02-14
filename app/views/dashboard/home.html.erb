@@ -1,0 +1,81 @@
+<!--
+* modified by: Tariq Habib Afridi
+* modified Date: 3 may, 2011.
+* Functionality: Comments section is removed and added class attribute to View all links
+-->
+<%= content_for :left_side_bar do %>
+  <%=  render :partial => 'dashboard/left_side_bar' %>
+<% end %>
+<%= content_for :right_side_bar do %>
+  <%=  render :partial => 'dashboard/right_side_bar' %>
+<% end %>
+<%= content_for :page_heading do %>
+
+
+  <div class="heading-blue-small-white-exlarge heading-inner white">Discussion Board</div>
+
+ 
+<% end %>
+<div class="container-inner-white-exlarge left-border border-color overflow-hidden">
+<div class="overflow-hidden space-bottom-5 space-right-inner-15 space-left-inner-15 text-align-right">
+    <span><a href="">Top Discussion</a></span>
+    <span class="space-right-10 space-left-10">|</span>
+    <span><a href="">Most Recent (145)</a></span>
+  </div>
+<%= render(:partial=>'discussions/discussions') %>
+  
+
+  <div class="discussion-board-top-details">
+
+    <div class="posts bottom-border border-color space-left-inner-10 space-top-inner-25 space-bottom-inner-25">
+
+      <div class="lt"><img src="/images/pic-1.jpg" /></div>
+      <div class="rt">
+        <div class="name"><a href="/users/2"><strong>Name of Friend</strong></a></div>
+        <div class="details space-bottom-15">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dignissim
+          semper mauris, id congue risus fringilla sit amet. Nunc nec quam erat,
+          sollicitudin sodales risus. Aenean leo nisl, fermentum a malesuada sit
+          amet, scelerisque quis libero. Cras in leo erat, in facilisis purus.</div>
+        <div id="discussion-status-bar-1" class="status-actions font-11 light-color-text space-top-inner-5">
+          <%= render(:partial=>'comments/comment_status', :locals =>{:user_id=>1,:type => 'discussions',:type_id=>1}) %>
+        </div>
+        <div class="view-comments hide"></div>
+      </div>
+    </div>
+
+
+
+    <div class="posts space-left-inner-10 space-top-inner-25 space-bottom-inner-25">
+
+      <div class="lt"><img src="/images/pic-1.jpg" /></div>
+      <div class="rt">
+        <div class="name"><a href="#"><strong>Name of Friend</strong></a></div>
+        <div class="details space-bottom-15">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dignissim
+          semper mauris, id congue risus fringilla sit amet. Nunc nec quam erat,
+          sollicitudin sodales risus. Aenean leo nisl, fermentum a malesuada sit
+          amet, scelerisque quis libero. Cras in leo erat, in facilisis purus.</div>
+        <div class="video"><video id="home-video" src="/videos/sign_language.ogg" controls="controls">
+
+            your browser does not support the video tag
+          </video></div>
+
+        <div id="discussion-status-bar-2" class="status-actions font-11 light-color-text space-bottom-5">
+              <%= render(:partial=>'comments/comment_status', :locals =>{:user_id=>1,:type => 'discussions',:type_id=>2}) %>
+        </div>
+
+        <div class="view-comments hide"></div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="border-bottom-gradient"></div>
+
+
+<% content_for :css do %>
+  <%= stylesheet_link_tag "dashboard/home" %>
+
+  <%= stylesheet_link_tag "discussions/home" %>
+
+  <%= stylesheet_link_tag "comments/index" %>
+<% end %>

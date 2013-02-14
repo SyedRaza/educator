@@ -1,0 +1,23 @@
+<div id="compact-contact-side-bar">
+  <div class="heading-green-small-white-small heading-inner white">Contacts</div>
+  <div class="container-inner-white-small left-border border-color space-bottom-inner-25 overflow-hidden">
+
+    <div id="search-friend" class="links green-background space-top-5 space-left-inner-5">
+      <img src="/images/icon-find-friends.gif" />
+      <span><%= link_to 'Find Friends', contacts_find_friends_path() %>
+      </span>
+    </div>
+
+    <div id="import-csv" class="links green-background space-top-5 space-left-inner-5">
+      <img src="/images/icon-import.gif" />
+      <span><%= link_to 'Import Friends', contacts_import_path() %>
+      </span>
+    </div>
+
+    <div id="invite-friend" class="links green-background space-top-5 space-left-inner-5">
+      <img src="/images/icon-invite-friends.gif" />
+      <span><%= link_to 'Invite Friends', contacts_invite_path() %>
+      </span>
+    </div>
+  </div>
+</div>

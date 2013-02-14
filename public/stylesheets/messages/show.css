@@ -1,0 +1,29 @@
+/* 
+    Document   : show
+    Created on : May 23, 2011, 4:10:21 PM
+    Author     : kamal
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+
+.show_for.reply>div{
+    width: 350px;
+    float: left;
+}
+div.time{
+    clear: both;
+}
+.show_for .label{
+    width: auto;
+}
+.image-preview{
+    width: 85px;
+    height: 85px;
+    border: 2px solid #C6C6C6;
+}

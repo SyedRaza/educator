@@ -1,0 +1,62 @@
+<%= content_for :right_side_bar do %>
+  <div id="user-compact-info">
+    <%= render :partial=>'users/compact_info' %>
+  </div>
+<% end %>
+
+<%= content_for :page_heading do %>
+  <div class="title"><span class="font-18"><%= @user.nick_name %></span></div>
+  <% if @relation_type==:friend_profile %>
+    <%#*<div class="right"><input type="button" value="Send Message" id="new-message"/></div>%>
+    <a href="/users/<%= params[:id]  %>/messages/new" id="new-message">Send Message</a>
+  <% end %>
+  <% if @relation_type==:other_profile %>
+    <div class="right">
+
+      <a href="/users/<%= params[:id]  %>/messages/new" id="new-message">Send Message</a>
+      <% unless current_user.is_friend? @user %>
+        <a href="/users/<%= params[:id]  %>/requests/new" id="add-contact">Add new contact</a>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="tabs space-top-10 space-right-inner-5 space-left-inner-5 blue-light-background white">
+    <ul>
+      <li><a class="active heading-anchor-color" href="#">Profile Information</a></li>
+      <li><a href="#" class="heading-anchor-color">Discussion</a></li>
+      <li><a href="#" class="heading-anchor-color">Archive</a></li>
+    </ul>
+  </div>
+<% end %>
+
+<%= content_for :css do  %>
+  <%= stylesheet_link_tag "dashboard/home" %>
+  <%= stylesheet_link_tag 'users/show.css' %>
+  <%= stylesheet_link_tag 'users/option' %>
+<% end %>
+<%= content_for :js do %>
+  <%= javascript_include_tag 'users/show.js' %>
+<% end %>
+
+<div class="discussion-board-top-details space-top-10 ">
+
+  <div id="basic-information-<%= current_user.id%>" class="info-section" >
+    <div class="profile-heading space-bottom-10 green-background">
+      <%= content_tag :div, "Basic Information", :class=>'title' %>
+      <div class="actions" id="basic-information-actions">
+        <%  if @relation_type == :self_profile %>
+          <%= link_to 'Edit',"/users/#{current_user.id}/edit", :remote=>true, :class=>'action edit' %>
+          <a href="#" class="action cancel basic-information">Cancel</a>
+        <% end %>
+      </div>
+    </div>
+    <div class="info-details">
+      <%= render :partial=>'users/basic_info', :locals=>{:user=>@user} %>
+    </div>
+  </div>
+
+
+  <%= render :partial=>'users/education_histories_section' %>
+  <%= render :partial=>'users/employment_histories_section' %>
+
+</div>

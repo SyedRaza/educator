@@ -1,0 +1,34 @@
+<%
+  @wrapper_css="detail-box"
+%>
+<div class="message-popup">
+  <div class="heading">
+    <img src="/images/icon-message.jpg" /><label>New Message</label>
+  </div>
+
+  <%= simple_form_for([@user, @message], :remote =>true,
+    :html => { :multipart => true },:class =>'message-popup') do |f| %>
+    <%= f.input :receiver,:label=>'To', :as=>:string,
+      :wrapper_html=>{ :class=>@wrapper_css },
+      :input_html=>{ 'data-pre'=>@reciever.to_json }  %>
+    <%= f.input :subject, :wrapper_html=>{ :class=>@wrapper_css } %>
+    <%= f.input :body,:label=>'Message', :wrapper_html=>{ :class=>@wrapper_css } %>
+    <%= f.simple_fields_for :uploads  do |uploads| %>
+      <%= uploads.input :attachment, :as => :file,
+        :wrapper_html=>{ :class=>"#{@wrapper_css} attachment display-none left" } %>
+      <%= link_to "X", "#", :class=>'display-none font-10 clear-field left' %>
+    <% end %>
+    <div class="<%= @wrapper_css %> space-bottom-10 font-10">
+      <label></label>
+      <%= link_to "Add Attachment", '#', :class=>'add-attachment' %>
+    </div>
+    <%= f.submit 'Send' %>
+    <input id="cancel-button"type="button" class="bottom" value="Cancel" />
+  <% end %>
+
+</div>
+
+
+
+
+

@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  institute_name: MyString
+  type_of_degree: MyString
+  degree_conferred: MyString
+  major_subjects: MyText
+  my_interest: MyString
+  from: 2011-05-10
+  to: 2011-05-10
+
+two:
+  institute_name: MyString
+  type_of_degree: MyString
+  degree_conferred: MyString
+  major_subjects: MyText
+  my_interest: MyString
+  from: 2011-05-10
+  to: 2011-05-10

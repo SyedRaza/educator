@@ -1,0 +1,27 @@
+<%= content_tag :div, :id=>"compact-request-side-bar",
+  :class=>'container request border-color bottom-border
+  space-top-inner-10 ' do %>
+<% requests_partial.each do |request|  %>
+
+    <%= show_for request, :class=>'inner-container space-bottom-10' do |s| %>
+        <%= content_tag :div, :class=>'lt' do %>
+            <%= image_tag( s.object.user.display_picture.url, :class=>'pic-small' ) %>
+        <% end %>
+        <%= content_tag :div, :class=>'rt' do %>
+          <%= s.value :wrapper_html=>{ :class=>'text' } do %>
+            <%= content_tag :span, :class=>'request-list-heading' do %>
+              <%= link_to s.object.user.first_name, user_path( s.object.user ),
+                :class=>'space-left-10' %>
+              <%= content_tag :span, 'added as'   %>
+              <%= content_tag :strong, request.contact_type.title %>
+            <% end %>
+          <% end %>
+        <% end %>
+    <% end %>
+
+  <% end %>
+<% end %>
+<%= content_tag :div, :class=>'space-bottom-5 font-10' do %>
+  <%= link_to 'View all requests',
+    user_requests_path( current_user ) %>
+<% end %>

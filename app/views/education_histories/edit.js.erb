@@ -1,0 +1,15 @@
+$('div#education_history_<%= params[:id]%>').parent().hide('blind')
+
+$('div#education_history_<%= params[:id]%>').hide('blind', function(){
+$(this).parent().prepend("<%=escape_javascript(render :partial => 'form') %>").show('blind',function(){
+$('#education_history_my_interest_list')
+.tokenInput('/education_histories/search.json', {
+theme: 'facebook',
+extraParam: 'type',
+extraValue: 'my_interest',
+preventDuplicates: true
+});
+});
+
+});
+set_options_css();

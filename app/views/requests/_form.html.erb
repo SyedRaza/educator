@@ -1,0 +1,9 @@
+<div class="message-popup">
+  <%= simple_form_for [@user, @request], :remote=>true do |s| %>
+    <%= s.input :request_id, :as=>:hidden, :input_html=>{ :value => params[:user_id] } %>
+    <%= s.association :contact_type, :label=>'Add as:' %>
+    <%= s.input :message %>
+    <%= s.submit 'Submit' %>
+    <input type="button" value="Cancel" class="bottom" id="cancel-button" />
+  <% end %>
+</div>

@@ -1,0 +1,42 @@
+<%= show_for user do |s| %>
+  <%= s.attribute :gender do  %>
+    <% if s.object.gender %>
+      Male
+    <%elsif s.object.gender.nil?%>
+      -
+    <% else %>
+      Female
+    <%end%>
+  <%end%>
+  <%= s.attribute :user_age unless s.object.date_of_birth.nil? %>
+  <%= s.attribute :address_1,  :if_blank=>"-"%>
+  <%= s.attribute :address_2,  :if_blank=>"-" %>
+  <%= s.attribute :zip_code,  :if_blank=>"-" %>
+  <%= s.attribute :city, :if_blank=>"-" %>
+  <%= s.attribute :state, :if_blank=>"-" %>
+  <%= s.attribute :show_country, :label=>"Country" %>
+  <%= s.attribute :contact_no, :label=>"Contact Number",  :if_blank=>"-"%>
+      <%= s.attribute :email, :if_blank=>"-" %>
+      <%= s.attribute :facebook_name do %>
+        <% unless s.object.facebook_name.nil? %>
+          <a href="<%= s.object.facebook_name %>" ><%= s.object.facebook_name %></a>
+          <%else%>
+          -
+         <%end%>
+          <% end %>
+      <%= s.attribute :linkedin_name do %>
+        <% unless s.object.linkedin_name.nil? %>
+          <a href="<%= s.object.linkedin_name %>" ><%= s.object.linkedin_name %></a>
+          <%else%>
+          -
+         <%end%>
+          <% end %>
+      <%= s.attribute :skype_name, :if_blank=>"-" %>
+  <%= s.attribute :website do %>
+    <%unless s.object.website.nil? %>
+      <a href="http://<%= s.object.website %>" > <%= s.object.website %> </a>
+    <%else%>
+      -
+    <%end%>
+  <%end%>
+<% end %>

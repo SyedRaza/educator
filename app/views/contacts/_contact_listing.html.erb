@@ -1,0 +1,36 @@
+<div class="space-left-10 space-left-inner-10 space-right-inner-10 left contact_list">
+  <%= simple_form_for :grouptype, :url=>"/users/#{current_user.id}/contacts/group", :remote=>true do |f| %>
+    <% list.each do |m| %>
+      <div class="cell width-15-percent left space-top-10" title="<%= m.first_name.capitalize %> <%= m.last_name.capitalize %>">
+        <%= check_box_tag 'companions[]',m.id, false, :class=>"companions-checkboxes hide" %>
+        <div class="left width-100-percent">
+          <div class="space-auto text-align-center width-90-percent">
+            <a href="/users/<%= m.id %>" class="dark" ><%= m.first_name.capitalize %></a>
+          </div>
+          <% if m.display_picture.file? %>
+            <%= image_tag m.display_picture.url() , :alt=>'user',:class=>"space-auto list-pic-medium" %>
+          <%  else %>
+            <% if m.gender == true %>
+              <%= image_tag "male.jpg", :alt=>'user',:class=>"space-auto list-pic-medium"  %>
+            <% else%>
+              <%= image_tag "female.jpg", :alt=>'female',:class=>"space-auto list-pic-medium"  %>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="actions width-100-percent height-20">
+          <div class="details-popup text-align-center">
+            <%= link_to "Details","/users/#{current_user.id}/contacts/?show_detail=true&comp_id=#{m.id}", :method=>:get, :remote=>true %>
+          </div>
+          <div style="background: none repeat scroll 0% 0% lightblue;" onmouseout="this.style.background='lightblue'" onmouseover="this.style.background='lightsalmon'" class="close" title="Delete <%= m.first_name %> <%= m.last_name %> from Your Contacts">
+            <%= link_to "x","/users/#{current_user.id}/contacts/#{m.id}",
+              :confirm => "Are you sure you want to delete this contact",
+              :method=>:delete ,:remote=>true,
+            %>
+          </div>
+        </div>
+      </div>
+    <%end%>
+    <%= f.input "group_type_id", :as=>:hidden, :class=>'hide' %>
+    <%= f.submit "assign",:class=>'hide' %>
+  <% end %>
+</div>

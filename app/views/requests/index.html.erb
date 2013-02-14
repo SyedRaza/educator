@@ -1,0 +1,26 @@
+<%= content_for :right_side_bar do %>
+  <%= render :partial => 'requests/right_side_bar' %>
+<%end%>
+
+<%= content_for :page_heading do %>
+  <div class="heading-blue-small-white-exlarge heading-inner-no-inner-space white ">
+    <span class="left space-top-15 space-left-20">Requests</span>
+    <div class="right space-top-5">
+      <select name="" class="filter">
+        <option>Request</option>
+        <option>Invitation</option>
+      </select>
+    </div>
+  </div>
+<% end %>
+<div class=" space-left-10 container-inner-white-exlarge left-border border-color overflow-hidden">
+  <%= render :partial=>'requests/list' %>
+</div>
+
+  
+
+
+<div class="border-bottom-gradient"></div>
+<% content_for :js do  %>
+  <%= javascript_include_tag 'requests/index.js' %>
+<% end %>

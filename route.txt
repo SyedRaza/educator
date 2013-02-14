@@ -1,0 +1,30 @@
+(in /home/razakhalid/projects/educator)
+   user_employment_histories GET    /users/:user_id/employment_histories(.:format)          {:action=>"index", :controller=>"employment_histories"}
+                             POST   /users/:user_id/employment_histories(.:format)          {:action=>"create", :controller=>"employment_histories"}
+ new_user_employment_history GET    /users/:user_id/employment_histories/new(.:format)      {:action=>"new", :controller=>"employment_histories"}
+edit_user_employment_history GET    /users/:user_id/employment_histories/:id/edit(.:format) {:action=>"edit", :controller=>"employment_histories"}
+     user_employment_history GET    /users/:user_id/employment_histories/:id(.:format)      {:action=>"show", :controller=>"employment_histories"}
+                             PUT    /users/:user_id/employment_histories/:id(.:format)      {:action=>"update", :controller=>"employment_histories"}
+                             DELETE /users/:user_id/employment_histories/:id(.:format)      {:action=>"destroy", :controller=>"employment_histories"}
+    user_education_histories GET    /users/:user_id/education_histories(.:format)           {:action=>"index", :controller=>"education_histories"}
+                             POST   /users/:user_id/education_histories(.:format)           {:action=>"create", :controller=>"education_histories"}
+  new_user_education_history GET    /users/:user_id/education_histories/new(.:format)       {:action=>"new", :controller=>"education_histories"}
+ edit_user_education_history GET    /users/:user_id/education_histories/:id/edit(.:format)  {:action=>"edit", :controller=>"education_histories"}
+      user_education_history GET    /users/:user_id/education_histories/:id(.:format)       {:action=>"show", :controller=>"education_histories"}
+                             PUT    /users/:user_id/education_histories/:id(.:format)       {:action=>"update", :controller=>"education_histories"}
+                             DELETE /users/:user_id/education_histories/:id(.:format)       {:action=>"destroy", :controller=>"education_histories"}
+               user_messages GET    /users/:user_id/messages(.:format)                      {:action=>"index", :controller=>"messages"}
+                             POST   /users/:user_id/messages(.:format)                      {:action=>"create", :controller=>"messages"}
+            new_user_message GET    /users/:user_id/messages/new(.:format)                  {:action=>"new", :controller=>"messages"}
+           edit_user_message GET    /users/:user_id/messages/:id/edit(.:format)             {:action=>"edit", :controller=>"messages"}
+                user_message GET    /users/:user_id/messages/:id(.:format)                  {:action=>"show", :controller=>"messages"}
+                             PUT    /users/:user_id/messages/:id(.:format)                  {:action=>"update", :controller=>"messages"}
+                             DELETE /users/:user_id/messages/:id(.:format)                  {:action=>"destroy", :controller=>"messages"}
+                       users GET    /users(.:format)                                        {:action=>"index", :controller=>"users"}
+                             POST   /users(.:format)                                        {:action=>"create", :controller=>"users"}
+                    new_user GET    /users/new(.:format)                                    {:action=>"new", :controller=>"users"}
+                   edit_user GET    /users/:id/edit(.:format)                               {:action=>"edit", :controller=>"users"}
+                        user GET    /users/:id(.:format)                                    {:action=>"show", :controller=>"users"}
+                             PUT    /users/:id(.:format)                                    {:action=>"update", :controller=>"users"}
+                             DELETE /users/:id(.:format)                                    {:action=>"destroy", :controller=>"users"}
+                        root        /(.:format)                                             {:controller=>"user", :action=>"id"}

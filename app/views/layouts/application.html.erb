@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Educator</title>
+    <%= stylesheet_link_tag 'reset','application','simple_form', 'show_for', 'token-input', 'token-input-facebook', 'css_override' %>
+    <%= stylesheet_link_tag 'jquery-ui/jquery-ui'%>
+    <%= csrf_meta_tag %>
+
+    <%= yield :css %>
+  </head>
+
+  <body>
+    <%unless @browser_message.nil?%>
+      <div id="browser-notification-container">
+        <%= @browser_message %>
+        or
+        <br />
+        Install latest version of <img src="/images/chrome.png" alt="Chrome" /><strong><a href="http://www.google.com/chrome/">Chrome</a></strong>,
+        <img src="/images/firefox.png" alt="Firefox" /><strong><a href="http://www.mozilla.com/en-US/firefox/fx/">Firefox</a></strong>,
+        <img src="/images/ie.png" alt="Internet Explorer" /><strong><a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home" >Internet Explorer</a></strong>,
+        <img src="/images/safari.png" alt="Safari" /><strong><a href="http://www.apple.com/safari/download/" >Safari</a></strong> or
+        <img src="/images/opera.png" alt="Opera" /><strong><a href="http://www.opera.com/download/" >Opera</a></strong>
+      </div>
+    <%end%>
+    <%= render :partial=>'layouts/header' %>
+  <section id="top-section">
+    <div class="notice"><%= yield  :notice   %></div>
+    <div class="warning"><%= yield  :warning   %></div>
+    <article>
+
+      <section class="container">
+        <header>
+          <%= yield :page_heading %>
+        </header>
+
+        <%= yield%>
+      </section>
+    </article>
+    <aside>
+      <%= yield :right_side_bar %>
+    </aside>
+  </section>
+
+  <%= render :partial=>'layouts/footer' %>
+
+
+  <%= javascript_include_tag "jquery.min" %>
+  <%= javascript_include_tag "jquery-ui-1.8.min" %>
+  <%= javascript_include_tag "combobox" %>
+  <%= javascript_include_tag "jquery.expander" %>
+  <%= javascript_include_tag "rails" %>
+  <%= javascript_include_tag "jquery.form" %>
+  <%= javascript_include_tag "jquery.remotipart" %>
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "jquery.tokeninput" %>
+
+  <%= yield  :js   %>
+
+  <div id="loader"></div>
+  <%= content_tag :div, " ",:id=>'new-pop-container' %>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<%= content_for :page_heading do %>
+  <div class="heading-blue-medium-white-exlarge heading-inner white"><span class="font-18">My Account</span> - Settings</div>
+<% end %>
+<%= content_for :right_side_bar do %>
+  <%=  render :partial => 'settings/right_side_bar' %>
+<% end %>
+
+<div class="container-inner-white-exlarge left-border border-color overflow-hidden">
+
+  <div class="space-top-10 space-left-10 space-right-10">
+    <%= content_tag :div, :class=>"setting-container" do %>
+      <%= content_tag :div, :class=>'setting-container-top' do %>
+        <%= content_tag :span, "Password", :class=>'bold' %>
+        <%= content_tag :span, :class=>'rt' do %>
+          <%= link_to "Change", '#', :class=>"change" %>
+          <%= link_to "Close", '#', :class=>"close" %>
+        <% end %>
+      <% end %>
+      <%= content_tag :div, :class=>"setting-container-sub-title" do %>
+        <%= content_tag :span, 'What you use to log in.'  %>
+      <% end %>
+
+      <%=  content_tag :div, :class=>'setting-container-form' do %>
+        <%= render :partial =>'/settings/account/change_pass_form' %>
+        <%= content_tag :p do %>
+          -  By changing your password you will be logged off of all other computers
+        <% end  %>
+        <%= content_tag :p do %>
+          -  Do not use the same password that you use for other online accounts.
+        <% end %>
+        <%= content_tag :p do  %>
+          -  Use a combination of letters, numbers, and punctuation.
+        <% end %>
+        <%= content_tag :p do %>
+          -  Passwords are case-sensitive. Remember to check your CAPS lock key.
+        <% end %>
+      <% end %>
+    <% end %>
+
+
+    <%= content_tag :div, :class=>"setting-container"  do %>
+      <%= content_tag :div, :class=>"setting-container-top" do %>
+        <%= content_tag :span, "E-mail", :class=>"bold"  %>
+        <%= content_tag :span, :class=>"rt" do %>
+          <%= link_to "Change", "#", :class=>"change" %>
+          <%= link_to "Close", "#", :class=>"close" %>
+        <% end %>
+      <% end %>
+      <%= content_tag :div, "Set your e-mail contact information",
+        :class=>"setting-container-sub-title" %>
+
+
+      <%= content_tag :div, :class=>"setting-container-form" do %>
+
+
+        <%= simple_form_for :set_email,
+          :url=>account_setting_user_settings_path( current_user ),
+          :remote=>true do |f| %>
+          <%= f.input :set_default,
+            :collection=>current_user.emails,
+            :as=>:radio,
+            :label=>'Contact Email',
+            :wrapper_html=>{ :class=>'radio-buttons' },
+            :input_html=>{ :class=>'display-block'}
+        %>
+          <%= content_tag :div,
+            :class=>"setting-left-side-content space-bottom-inner-10" do %>
+            <%= f.button 'submit', :value=>"Change Contact Email", :class=>'margin-reset' %>
+          <% end %>
+        <% end %>
+
+        <%= content_tag :div,
+          :class=>'setting-left-side-content space-bottom-inner-10' do %>
+          Your contact email must be a valid address.
+        <% end %>
+        <%= simple_form_for :new_email,
+          :url=>account_setting_user_settings_path( current_user ),
+          :remote=>true do |f| %>
+          <%= f.input :new_email,
+            :wrapper_html=>{ :class=>'field-box space-bottom-10' },
+            :label_html=>{ :class=>'left display-block space-right-15 text-align-right' },
+            :input_html=>{ :class=>'setting-input-field' }
+        %>
+          <%= content_tag :div, :class=>'setting-left-side-content margin-reset' do %>
+            <%= f.button 'submit', :value=>'Add New Email' %>
+            <%= submit_tag 'Cancel',:type=>'button', :class=>"btn-cancel space-left-5" %>
+          <% end %>
+        <%  end %>
+      <% end %>
+
+    <% end %>
+
+    <div class="setting-container">
+      <div class="setting-container-top">
+        <span class="bold">Secret Question</span>
+        <span class="rt"><a href="#" class="change">Change</a><a href="#" class="close">Close</a></span>
+      </div>
+
+      <div class="setting-container-sub-title">
+        <span>To identify you as the account owner.</span>
+
+      </div>
+
+      <%= content_tag :div, :class=>"setting-container-form" do %>
+        <%= content_tag :p, do %>
+          We use these to help identify you as the owner of your account if you forget your password.
+        <% end %>
+        <%= content_tag :div, '', :class=>"space-bottom-10" %>
+        <%= render :partial=>'settings/account/secret_question_form' %>
+
+      <% end %>
+      <div class="setting-container">
+        <%= content_tag :div, :class=>"setting-container-top" do %>
+          <%= content_tag :span, 'Deactivate Account', :class=>'bold' %>
+          <%= content_tag :span, :class=>'rt' do %>
+            <%= link_to 'Deactivate', '#', :class=>'change' %>
+            <%= link_to 'Close', '#', :class=>'close' %>
+          <% end %>
+        <% end %>
+        <%= content_tag :div, :class=>"setting-container-sub-title" do %>
+          <%= content_tag :span do %>
+            Deactivating your account will disable your profile and remove your name and picture from anything you've shared
+          <% end  %>
+        <% end %>
+
+        <%= content_tag :div, :class=>"setting-container-form" do %>
+
+          <%= render :partial=>'/settings/account/deactivate_account_form' %>
+
+        <% end %>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+<%= content_tag :div, '', :class=>'error-message' %>
+<div class="border-bottom-gradient"></div>
+<%= content_for :css do %>
+  <%= stylesheet_link_tag 'settings/global.css' %>
+<%end%>
+<%= content_for :js do %>
+  <%= javascript_include_tag 'settings/global.js' %>
+<%end%>
+

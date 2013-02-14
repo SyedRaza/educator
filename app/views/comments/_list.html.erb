@@ -1,0 +1,23 @@
+<!--
+* Created by: Tariq Habib Afridi
+* Created Date: 03 May, 2011
+
+-->
+
+<!--
+* Purpose: listing of Comments
+* Implemented By: Tariq Habib Afridi
+-->
+<%  stylesheet_link_tag "comments/index" %>
+
+<%= render :partial => 'form' %>
+<% @comments.each do |c| %>
+  <div class="f-comments green-background space-inner-10 space-top-10">
+    <div class="pic left space-right-10"><img src="/images/<%= c[:image]%>" /></div>
+    <div class="m-details display-inline-block">
+      <div class="message"><a href="/users/<%= c[:user_id] %>"><span class="bold"><%= c[:user_name] %></span></a><p class="more"><%= c[:mainbody] %></p></div>
+      <div class="m-time">Time at 11:00 </div>
+    </div>
+  </div>
+<% end %>
+

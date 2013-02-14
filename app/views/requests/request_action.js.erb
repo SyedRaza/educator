@@ -1,0 +1,4 @@
+$('div#request-list')
+  .hide('blind')
+  .html('<%= escape_javascript( render :partial=>'requests/list') %>')
+  .show('blind');

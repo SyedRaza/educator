@@ -1,0 +1,73 @@
+<%= simple_form_for :message_delete, :url=>'delete_messages'  do |f| %>
+  <% @messages.each do |m| %>
+    <%
+    if m.read == false
+      @unread = 'unread'
+    else
+      @unread = nil
+    end
+  %>
+    <%= content_tag :div,
+      :class=>"list bottom-border border-color space-left-10 space-top-inner-10 #{@unread}" do %>
+      <%= show_for m , :class => @unread do |s|  %>
+
+        <%= check_box_tag 'message_list[]', s.object.id, false ,
+          :class=>"left space-top-5 space-right-10 check-box" %>
+          <%= link_to(user_message_path(current_user.id,
+              get_parent( s.object.reply_of.nil? ? s.object.id : s.object.reply_of )),
+            :class=>'display-block message-link') do %>
+          <% end %>
+        <%= content_tag :div ,:class=>'message-wrapper' do %>
+          <%= content_tag :div,
+            :class=>"details left left-border
+          border-color space-left-inner-10 #{@unread} " do %>
+            <%= content_tag :div, :class=>"left" do %>
+              <%= link_to( image_tag( s.object.sender.display_picture.url( :thumb ),
+                  :class=>'left pic'), user_path( s.object.sender_id )) %>
+              <%= content_tag :div, :class=>"display-clear" do %>
+                <%= link_to s.object.sender.first_name,
+                  user_path( s.object.sender_id ) %>
+              <% end %>
+            <% end %>
+
+            <%= content_tag :div, :class=>"detail-content left space-left-inner-10" do %>
+
+              <%= s.value :subject do %>
+
+                <%= link_to m.subject,
+                  user_message_path(current_user.id,
+                  get_parent( m.reply_of.nil? ? m.id : m.reply_of )) %>
+
+              <% end %>
+
+              <% s.value :body do %>
+                <% unless s.object.reply_of.nil? %>
+                  <%= truncate(s.object.body, :length=>50, :omission => ' ...') %>
+                <% else %>
+                  <%= truncate(s.object.body, :length=>50, :omission => ' ...') %>
+                <% end %>
+              <% end %>
+
+              <%= content_tag :div, :class=>"clear" do %>
+                <% s.value :created_at, :wrapper_html=>{ :class=>'left font-11' } do  %>
+                  <%= get_current_user_time( s.object.created_at ) %>
+                <% end %>
+
+                <% unless s.object.uploads.first.nil? %>
+                  <%= image_tag('/images/attached.jpg', :class=>'space-left-10') %>
+                <% end %>
+
+              <% end %>
+
+            <% end %>
+          <% end %>
+        <% end %>
+        <%= link_to image_tag('icon-delete.gif'), "messages/#{s.object.id}",
+          :class=>'right',
+          :confirm => "Are you sure?",:method=>:delete %>
+      <% end %>
+    <% end %>
+  <% end %>
+  <%# end %>
+<% end %>
+

@@ -1,0 +1,183 @@
+body {
+	background:url(/images/body-bg.jpg) repeat-x;
+	background-color:#a6cdee;
+	margin:0px;
+	padding:0px;
+	color:#4a4a4a;
+	font-size:12px;
+	font-family:Arial, Helvetica, sans-serif;
+        outline:none;
+}
+input , select , a { outline:none; }
+a {
+	text-decoration:none;
+	color:#247ac9;
+}
+a:hover {
+	text-decoration:underline;
+}
+
+section {
+	width:863px;
+	margin:0px auto;
+	padding-top:50px;
+	display:block;
+}
+
+/* ========================= Header Tags Start Here ========================= */
+header {
+	display:block;
+	padding-left:245px;
+}
+.logo {
+	display:block;
+	padding-bottom:5px;
+}
+p {
+	margin:0px;
+	padding:0px;
+	text-align:justify;
+	font-size:13px;
+}
+
+
+/* ========================= Body Tags Start Here ========================= */
+section > section {
+	display:block;
+	margin-top:20px;
+	padding:0px;
+	height:268px;
+	background:url(/images/bg.png) right no-repeat;
+}
+article {
+	width:412px;
+	float:right;
+	display:block;
+	margin-right:40px;
+	margin-top:10px;
+}
+aside {
+	float:left;
+	display:block;
+	margin-left:20px;
+	margin-top:-70px;
+}
+nav {
+	border-bottom:1px solid #c5ced0;
+	overflow:hidden;
+	display:block;
+}
+ul {
+	margin:0px;
+	padding:0px;
+	list-style:none;
+}
+li {
+	margin:0px;
+	padding:0px;
+	float:left;
+	color:#335e83;
+}
+li a {
+	color:#335e83;
+	text-decoration:none;
+}
+li a:hover {
+	color:#335e83;
+	text-decoration:underline;
+}
+li.active {
+	margin:0px;
+	padding:0px;
+	font-size:20px;
+}
+li.nonactive {
+	margin:0px;
+	padding:0px;
+	font-size:12px;
+	padding-top:8px;
+}
+li.sep {
+	margin:0px 15px 3px 15px;
+	border-left:1px solid #a2caed;
+	height:28px;
+}
+
+
+.form {
+	margin:18px 0px;
+}
+.fields-box {
+	padding-bottom:9px;
+	overflow:hidden;
+}
+.title {
+	float:left;
+	text-align:right;
+	padding-right:15px;
+	padding-top:3px;
+	width:180px;
+}
+.lable {
+	float:left;
+	width:216px;
+}
+input[type="text"] {
+	background:url(/images/text-field.png) no-repeat;
+	width:216px;
+	height:20px;
+	border:none;
+}
+input[type="password"] {
+	background:url(/images/text-field.png) no-repeat;
+	width:216px;
+	height:20px;
+	border:none;
+}
+input[type="submit"] {
+	border:none;
+	padding:2px 15px;
+	background:#1d507c;
+	color:#FFF;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	float:right;
+}
+
+
+/* ========================= Footer Tags Start Here ========================= */
+footer {
+	text-align:right;
+	color:#335e83;
+	font-size:11px;
+	padding-top:5px;
+	padding-right:5px;
+	width:863px;
+	position:relative;
+
+}
+.message{
+    color:red;
+    text-align: right;
+}
+#sign-up-form{
+    display:none;
+}
+div#browser-notification-container
+{
+    padding: 5px;
+    background-color: #eded99;
+    font-size: 14px;
+    min-height: 35px;
+    overflow: visible;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    z-index: 1020;
+}
+#browser-notification-container > img{
+    width:18px;
+    vertical-align: middle;
+    padding-right: 1px;
+}

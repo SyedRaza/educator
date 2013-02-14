@@ -1,0 +1,74 @@
+<%#= simple_form_for(@message) do |f| %>
+<%#= f.error_notification %>
+
+<%#*<div class="inputs">%>
+<%#= f.input :from_user %>
+<%#= f.input :to_user %>
+<%#= f.input :read_flag %>
+<%#= f.input :subject %>
+<%#= f.input :message %>
+<%#*</div>%>
+
+<%#*<div class="actions">%>
+<%#= f.button :submit %>
+<%#*</div>%>
+<%# end %>
+<div class="message-popup">
+  <div class="heading">
+    <img src="/images/icon-archive.png" alt="archive" /><span>Add Archive</span>
+  </div>
+  <%#*<div class="detail-box">%>
+    <%#*<span>To :</span><input name="" id="friend" type="text" value="" />%>
+  <%#*</div>%>
+  <div class="detail-box">
+    <label for="txt-title">Title :</label><input name="title" id="txt-title" type="text" value="" />
+  </div>
+
+  <div class="detail-box">
+
+    <label for="slbx-subject">Subject :</label>
+    <select name="subject" id="slbx-subject">
+      <option value="">Physics</option>
+      <option value="">Math</option>
+    </select>
+  </div>
+  <div class="detail-box">
+    <label for="slbx-grade">Grade :</label>
+    <select name="grade" id="slbx-grade">
+      <option value="">6th</option>
+      <option value="">8th</option>
+      <option value="">10th</option>
+    </select>
+  </div>
+  <div class="detail-box">
+    <label for="txt-tag">Tags :</label><input name="tag" id="txt-tag" type="text" value="" />
+  </div>
+
+  <div class="detail-box">
+    <label for="txtarea-abstract">Abstract :</label>
+    <textarea name="abstract" id="txtarea-abstract"></textarea>
+  </div>
+  <div class="detail-box">
+    <label for="chkbox-post-profile" >Post to Profile :</label>
+    <input type="checkbox" name="post-profile" id="chkbox-post-profile" />
+  </div>
+
+  <div class="detail-box">
+    <label>&nbsp;</label>
+    <img src="images/attached.jpg" /> <a href="#">Attached</a>
+  </div>
+
+  <div class="detail-box">
+    <input type="checkbox" name="post-profile" id="chkbox-post-profile" />
+    <span class="rules-agreement">I understand and comply with <a class="pop-up" href="/archives/rules">Rules</a> governing the Copyright protection regulations and absolving EP of liability.</span>
+  </div>
+
+
+  <div class="button-box">
+    <ul>
+      <li><input id="submit-message-button" name="submit" type="button" class="bottom" value="Submit" /></li>
+      <li><input id="cancel-message-button"type="button" class="bottom" value="Cancel" /></li>
+    </ul>
+  </div>
+
+</div>

@@ -1,0 +1,8 @@
+$('#employment-history-<%= current_user.id %>')
+.find('div.info-details')
+.hide('blind',function(){
+$(this).html("<%= escape_javascript(render :partial=>'employment_histories/emp_info', :locals=>{ :user=> current_user}) %>")
+.show('blind')
+set_options_css();
+})
+

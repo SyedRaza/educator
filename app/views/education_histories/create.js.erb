@@ -1,0 +1,9 @@
+$('#education-history-<%= current_user.id %>').find('div#education-history-actions > a.action.cancel').hide()
+.siblings('a.action.new').show()
+$('#education-history-<%= current_user.id %>').find('div.info-details').hide('blind',function(){
+$(this).html("<%= escape_javascript(render :partial=>'education_histories/edu_info',:locals=>{ :user=>current_user}) %>")
+.show('blind')
+})
+
+
+

@@ -1,0 +1,65 @@
+<%= content_for :right_side_bar do %>
+  <%=  render :partial => 'archives/right_side_bar' %>
+
+<% end %>
+<%= content_for :page_heading do %>
+  <div class="heading-blue-small-white-exlarge heading-inner white">Archives</div>
+
+<% end %>
+<div class="container-inner-white-exlarge left-border border-color overflow-hidden">
+  <div class="display-inline-block overflow-hidden right display-clear space-right-15 space-left-15 space-bottom-10">
+    <input id="add-archive" value="Add to Archive" type="button" />
+
+  </div>
+
+  <div class="tabs display-clear display-block listing-top-heading-bar blue-light-background white space-left-inner-5 space-right-inner-5 space-right-10 space-left-10">
+    <ul>
+      <li><a class="active" href="#">Showcase</a></li>
+      <li><a href="#">Most Recent</a></li>
+      <li><a href="#">Popular</a></li>
+    </ul>
+  </div>
+
+
+  <div id="archives-container" class="overflow-hidden ">
+    <div class="posts bottom-border border-color space-left-inner-10 space-top-inner-10 space-bottom-inner-10">
+      <div class="lt"><img src="images/pic-1.jpg" /><span class="font-11"><a href="#">Person Name</a></span></div>
+      <div class="rt">
+        <div class="details"><strong>Title :</strong> <a href="#">Lorem ipsum dolor sit amet</a></div>
+        <div class="details"><strong>Grade :</strong> <a href="#">9th</a> , <strong>Subject :</strong> <a href="#">Maths</a></div>
+        <div class="details"><strong>Tags :</strong> <a href="#">Maths</a> , <a href="#">Algebra</a> , <a href="#">K12</a> , <a href="#">High school</a></div>
+        <div class="details"><a href="#"><strong>Abstract :</strong></a> Lorem ipsum dolor sit amet, consectetur adipisicing elit, eiusmod sed do , Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</div>
+
+
+        <div id="archive-status-bar-1" class="status-actions font-11 light-color-text">
+              <%= render(:partial=>'comments/comment_status', :locals =>{:user_id=>1,:type => 'archives',:type_id=>1}) %>          
+        </div>
+        <div class="view-comments hide space-top-5"></div>
+
+      </div>
+    </div>
+    <div class="posts bottom-border border-color space-left-inner-10 space-top-inner-10 space-bottom-inner-10">
+      <div class="lt"><img src="images/pic-1.jpg" /><span class="font-11"><a href="#">Person Name</a></span></div>
+      <div class="rt">
+
+        <div class="details"><strong>Title :</strong> <a href="#">Lorem ipsum dolor sit amet</a></div>
+        <div class="details"><strong>Grade :</strong> <a href="#">9th</a> , <strong>Subject :</strong> <a href="#">Maths</a></div>
+        <div class="details"><strong>Tags :</strong> <a href="#">Maths</a> , <a href="#">Algebra</a> , <a href="#">K12</a> , <a href="#">High school</a></div>
+        <div class="details"><a href="#"><strong>Abstract :</strong></a> Lorem ipsum dolor sit amet, consectetur adipisicing elit, eiusmod sed do , Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</div>
+
+
+        <div class="video"><video id="home-video" src="/videos/geometry.ogg" controls="controls">
+            your browser does not support the video tag
+          </video></div>
+
+        <div id="archive-status-bar-2" class="status-actions font-11 light-color-text">
+          <%= render(:partial=>'comments/comment_status', :locals =>{:user_id=>1,:type => 'archives',:type_id=>2}) %>
+        </div>
+
+        <div class="view-comments hide"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<%= stylesheet_link_tag "archives/all" %>

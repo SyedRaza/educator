@@ -1,0 +1,7 @@
+<% unless params[:user].nil? %>
+  $('div#find-friends-container-<%= current_user.id%>')
+  .html('<%= escape_javascript(render :partial=> '/contacts/list', :locals=>{:users=>@users } )%>');
+<% end %>
+ <% unless @users.nil? %>
+  $('div#find-friends-container-<%= current_user.id %>').html('<%= escape_javascript(render :partial=> '/contacts/find_friends_list', :locals=>{:members=>@users}) %>');
+  <% end %>

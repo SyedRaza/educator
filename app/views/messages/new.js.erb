@@ -1,0 +1,15 @@
+$('div#new-pop-container')
+.html("<%=escape_javascript(render :partial => 'form') %>")
+.show('blind', function(){
+    $('#message_receiver')
+        .tokenInput('messages.json', {
+          theme: 'facebook',
+           crossDomain: false,
+           prePopulate: $('#message_receiver').data('pre'),
+           hintSpanText: 'use comma(,) to seperate Recipent',
+           razaHack: 'Not Null',
+           preventDuplicates: true
+        });
+        
+    });
+

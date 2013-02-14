@@ -1,0 +1,51 @@
+<div id="request-list" >
+  <div class="display-clear display-block listing-top-heading-bar green-background space-left-inner-5 space-right-inner-5 space-right-10 space-left-10">
+    <div class="listing right space-top-inner-5 width-reset">
+      <%= page_entries_info @requests unless @requests.empty?%>
+    </div>
+  </div>
+  <div class="space-left-10 space-top-10">
+
+    <% @requests.each do |r| %>
+      <div class="list bottom-border border-color space-top-inner-10 space-bottom-inner-10">
+        <%= show_for r do |s| %>
+          <%= simple_form_for r,
+            :url=>url_for( :controller=>:requests, :action=>:request_action ),
+            :remote=>true do |f|
+          %>
+            <%= f.input :id, :as=> :hidden %>
+            <div class="details left">
+              <% unless s.object.request_id.nil? %>
+                <%= image_tag s.object.user.display_picture.url(:thumb), :class=>:left  %>
+              <% end %>
+              <div class="detail-content left space-left-inner-10">
+                <% if s.object.request_id.nil? %>
+                  <span class="left space-right-5">Invitation Sent to</span>
+                <% end %>
+                <%= f.association :contact_type, :as=>:hidden, :label=>false, :required=>true, :wrapper_html=>{ :class=>"left" } %>
+                <%= s.value  :friend_name, :wrapper_html=>{ :class=>"left space-right-5"  }  %>
+                <% unless s.object.request_id.nil? %>
+                  <span class="left  space-right-5"> added you as </span>
+                  <% if s.object.contact_type_id.nil? %>
+                    <%= f.association :contact_type, :label=>false, :required=>true, :wrapper_html=>{ :class=>"left" } %>
+                  <% else %>
+                    <%= s.value :contact_type, :wrapper_html=>{ :class=>:left } %>
+                  <% end %>
+                  <%= s.value :message, :wrapper_html=>{ :class=>'display-clear' } %>
+                <% end %>
+
+              </div>
+
+            </div>
+            <% unless @hide_control== true  %>
+              <div class="buttons right space-top-inner-10">
+                <%= f.submit 'Confirm', :class=>"request-confirm margin-rest" %>
+                <%= f.submit 'Block', :class=>"request-block margin-rest" %>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

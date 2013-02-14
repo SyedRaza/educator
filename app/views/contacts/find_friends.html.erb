@@ -1,0 +1,38 @@
+<%= content_for :css do %>
+  <%= stylesheet_link_tag 'contacts/import' %>
+  <%= stylesheet_link_tag 'contacts/index' %>
+<% end %>
+
+<%= content_for :right_side_bar do %>
+  <%= render :partial => 'contacts/right_side_bar' %>
+  <%= render :partial => 'contacts/group_sidebar', :locals=>{:groups=>user_groups }%>
+<%end%>
+
+
+<%= content_for :page_heading do %>
+  <div class="heading-blue-medium-white-exlarge heading-inner white"><span class="font-18">Find Friends</span>
+    - Contacts
+  </div>
+<% end %>
+
+<span class="font-14 bold space-left-25">Search friends from different parts of your life</span><br />
+<span class="font-12 space-left-25">Use the checkboxes below to discover people you know by name, grades, subject and more.</span><br />
+
+<div class="container-inner-white-exlarge left-border border-color overflow-hidden">
+  <div class="tabs green-background top-space space-left-10 space-right-10 space-left-inner-5 space-top-5">
+    <a href="#" class="active">Find Friends</a>
+  </div>
+
+
+  <div class="invite-friend space-top-5">
+    <%= render :partial=> "find_friend_filter" %>
+  </div>
+  <div id="find-friends-container-<%= current_user.id %>" class="left width-65-percent space-top-10">
+    <%= render :partial=>'find_friends_list', :locals=> {:members=>@members} %>
+  </div>
+</div>
+
+<div class="border-bottom-gradient"></div>
+<%= content_for :js do %>
+  <%= javascript_include_tag 'contacts/find-friend.js' %>
+<% end %>

@@ -1,0 +1,53 @@
+<% if params.has_key?(:form) %>
+  $('div#new-pop-container').html('<%= escape_javascript(render :partial=> 'group_form' )%>').show();
+<% elsif params.has_key?(:group) %>
+  $('div#new-pop-container').html('').hide();
+  $('.group-right-sidebar').hide('blind').html('<%= escape_javascript(render :partial=>'group_sidebar' ) %>').show('blind');
+<% elsif params.has_key?(:edit) %>
+  $('div#new-pop-container').html('<%= escape_javascript(render :partial=> 'group_edit_form', :locals=>{:group=>@editable_group} )%>').show();
+<% elsif params.has_key?(:delete) %>
+  <% if @delete_notice.nil? %>
+    window.location.href = "/users/:user_id/contacts";
+  <% else %>
+  <% end %>
+<% elsif params.has_key?(:friend_id) %>
+  $('a#<%= params[:group_title] %>').closest('li').remove();
+  $('.message-popup select').append('<option value=<%=@contact_type.first%>><%=params[:group_title]%></option>');
+<% elsif params.has_key?(:friendd_id) %>
+  <% unless @group.nil? %>
+    <% str = "<li class=\"token-input-token-facebook\"><p>#{@group.title}</p><span class=\"delete-token\">"
+    str << "<a id=\"#{@group.title}\" data-remote=\"true\""
+    str << "href=\"/users/#{current_user.id}/contacts/group/?friend_id=19&group_title=#{@group.title}\">x</a>"
+    str << "</span></li>"
+  %>
+    $('div#friend-groups-token').append("<%=escape_javascript(str.html_safe)%>");
+    $('.message-popup option[value=<%=@group.id%>]').remove();
+  <% end %>
+<% end %>
+
+<% unless @user_list.nil? %>
+  $('div#title-group').html("<span class='font-18'><%= params[:group_name] %></span> - Group");
+  $('div#contact-list-container-<%= current_user.id %>').html('<%= escape_javascript(render :partial=> 'group_contacts_listing', :locals=>{:list=>@user_list} )%>');
+<% end %>
+<% unless @notice.nil? %>
+  $('div.notice').html("<span class='font-14' ><%=@notice %></span>").show().delay(3000).fadeOut();
+  $('input.companions-checkboxes').each(function() {
+  this.checked = false;
+  });
+  $('div.cell').each(function() {
+  $(this).removeClass('selected');
+  });
+<% end %>
+<% unless @group_user_list.nil? %>
+  $('div.notice').html("<span class='font-14' >Contact successfully Removed from Group</span>").show().delay(3000).fadeOut();
+  $('div#contact-list-container-<%= current_user.id %>').html('<%= escape_javascript(render :partial=> 'group_contacts_listing', :locals=>{:list=>@group_user_list, :group=>@group} )%>');
+<% end %>
+
+<% unless @edit_form.nil? %>
+  <% if @edit_notice.nil? %>
+    $('div#new-pop-container').html('').hide();
+    $('div#title-group').html("<span class='font-18'><%= @group.title %></span> - Group");
+    $('.group-right-sidebar').hide('blind').html('<%= escape_javascript(render :partial=>'group_sidebar' ) %>').show('blind');
+  <% else %>
+  <% end %>
+<% end %>

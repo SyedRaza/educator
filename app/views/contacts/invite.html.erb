@@ -1,0 +1,29 @@
+<%= content_for :css do %>
+  <%= stylesheet_link_tag 'contacts/import' %>
+  <%= stylesheet_link_tag 'contacts/index' %>
+<% end %>
+
+<%= content_for :right_side_bar do %>
+  <%= render :partial => 'contacts/right_side_bar' %>
+  <%= render :partial => 'contacts/group_sidebar', :locals=>{:groups=>user_groups }%>
+<%end%>
+
+
+<%= content_for :page_heading do %>
+  <div class="heading-blue-medium-white-exlarge heading-inner white"><span class="font-18">Invite</span>
+    - Contacts
+  </div>
+<% end %>
+
+<div class="container-inner-white-exlarge left-border border-color overflow-hidden">
+  <div class="tabs green-background top-space space-left-10 space-right-10 space-left-inner-5">
+    <a href="#" class="active">Invite Friend</a>
+  </div>
+
+
+  <div id="invite-friend-container-<%= current_user.id %>" class="invite-friend space-top-5">
+    <%= render :partial=>'invite_form' %>
+  </div>
+</div>
+
+<div class="border-bottom-gradient"></div>

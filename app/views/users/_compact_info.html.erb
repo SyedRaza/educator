@@ -1,0 +1,17 @@
+<div class="container bottom-border border-color left-panel-profile-box space-top-inner-10 space-bottom-inner-10">
+
+    <%= image_tag @user.display_picture.url(:medium) , :alt=>'user' %>
+  <%# if @user.display_picture.file? %>
+    <%#= image_tag @user.display_picture.url(:medium) , :alt=>'user' %>
+
+  <%#  else %>
+    <%# if @user.gender == true %>
+      <%#= image_tag "male.jpg", :alt=>'user' %>
+    <%# else%>
+      <%#= image_tag "female.jpg", :alt=>'female' %>
+    <%# end %>
+  <%# end %>
+
+  <h1><%= "#{@user.first_name} #{@user.last_name}" %></h1>
+  <p class="more"><span class="bold">About:</span> <%= @user.about_me %></p>
+</div>

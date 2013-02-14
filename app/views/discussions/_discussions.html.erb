@@ -1,0 +1,21 @@
+<%
+@fisrt_heading_anchor = 'action edit active heading-anchor-color'
+ @heading_anchor = 'action edit heading-anchor-color'
+%>
+<div class="tabs white blue-light-background top-space-5 space-left-10 space-right-10 space-left-inner-5 space-right-inner-5 ">
+  <ul>
+    <li><%= link_to 'All',"/users/#{1}/discussions/all", :remote=>true, :class=>@fisrt_heading_anchor %></li>
+    <li><%= link_to 'Discussion',"/users/#{1}/discussions/new", :remote=>true, :class=>@heading_anchor %></li>
+    <li><%= link_to 'Poll',"/users/#{1}/discussions/poll", :remote=>true, :class=>@heading_anchor %></li>
+    <li><%= link_to 'Photo',"/users/#{1}/discussions/photo", :remote=>true, :class=>@heading_anchor %></li>
+    <li><%= link_to 'Videos',"/users/#{1}/discussions/video", :remote=>true, :class=>@heading_anchor %></li>
+  </ul>
+</div>
+
+<div id="discussion-posting-container" class="space-left-10" >
+  
+</div>
+
+<%= render( :partial=>'discussions/form_buttons')  %>
+
+

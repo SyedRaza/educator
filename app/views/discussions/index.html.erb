@@ -1,0 +1,12 @@
+<div class="tabs heading-background-color top-space half-left-inner-space half-right-inner-space">
+    <ul>
+      <li><%= link_to 'Discussion',"/users/#{1}/discussions/new", :remote=>true, :class=>'action edit' %></li>
+      <%#*<li><a href="/users/1/discussions/new" class="active">Discussion</a></li>%>
+      <li><%= link_to 'Poll',"/users/#{1}/discussions/poll", :remote=>true, :class=>'action edit ' %></li>
+      <%#*<li><a href="poll">Polls</a></li>/users/:id/discussions/poll%>
+      <li><a href="photo">Photos</a></li>
+      <li><a href="video">Videos</a></li>
+    </ul>
+  </div>
+<div class="show-form" ></div>
+<%= render( :partial=>'discussions/form_buttons')  %>

@@ -1,0 +1,163 @@
+/*
+    Document   : home.css
+    Created on : Apr 15, 2011, 12:43:50 PM
+    Author     : razakhalid
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/*
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+root {
+    display: block;
+}
+/* --------- Left-Panel Tabs Start Here --------- */
+/*.left-panel-sep {
+	height:1px;
+	background:#e3eaf4;
+	margin:10px 0px;
+}*/
+
+.container {
+    overflow:hidden;
+}
+.comapct-user-details {
+    width:130px;
+    float:left;
+}
+.comapct-user-details span {
+    display:block;
+    clear: both;
+}
+.details span{
+    display: inline-block;
+}
+
+
+
+img.pic {
+    width:50px;
+    height:50px;
+    border:1px solid #c6c6c6;
+    margin-right:8px;
+    float:left;
+}
+
+.heading { padding:0px 0px 10px 0px; overflow:hidden; }
+.heading ul { margin:0px; padding:0px; list-style:none; }
+.heading ul li { margin:0px; padding:0px; }
+.heading ul li.img { padding-right:3px; float:left; }
+.heading ul li.text { float:left; }
+.heading ul li.alert { padding-left:10px; float:right; }
+.heading ul li.alert a { padding:2px; background:#b7bbc7; color:#FFF; }
+.inner-container {
+
+	overflow:hidden;
+	height:100%;
+}
+.inner-container .lt {
+	width:40px;
+	float:left;
+}
+.inner-container .lt .pic {
+	width:40px;
+	height:40px;
+
+}
+.inner-container .lt .pic img {
+    width:40px;
+    height:40px;
+}
+.inner-container .rt {
+    width:140px;
+    float:left;
+}
+
+
+#compact-contact-side-bar .bottom {
+
+	width:190px;
+	overflow:hidden;
+}
+#compact-contact-side-bar .bottom .friends-box {
+	width:41px;
+}
+
+#compact-contact-side-bar .bottom .friends-box img {
+	width:39px;
+	height:39px;
+        border:1px solid #c6c6c6;
+
+}
+#compact-contact-side-bar .bottom .friends-box a {
+    width:42px;
+    font-size:11px;
+}
+
+
+
+/* --------- Right-Panel Tabs Start Here --------- */
+
+
+
+.right-search {
+    height:21px;
+    border:1px solid #b9b9b9;
+}
+
+
+.right-search .icon {
+    float:left;
+    width:27px;
+    height:21px;
+}
+.right-search .text-field {
+    float:left;
+    width:178px;
+    height:21px;
+}
+.right-search .text-field input {
+    width:178px;
+    height:19px;
+    border:none;
+    background:#FFF;
+}
+.right-search-bottom-tabs {
+    padding:3px 0px 20px 0px;
+    font-size:11px;
+    overflow:hidden;
+}
+.right-search-bottom-tabs .lt {
+    float:left;
+}
+.right-search-bottom-tabs .rt {
+    float:right;
+}
+
+
+
+
+.search-box-with-shadow {
+    background: url("/images/search-box-with-shadow.png") no-repeat scroll 0 0 transparent;
+    height: 27px;
+    width: 205px;
+}
+
+.content {
+	width:100%;
+}
+dl.options dd{
+    line-height: 1.6;
+    position:absolute;
+    display: none;
+}
+dl.options dd> ul{
+    position: absolute;
+    width: 150px;
+}
+dl.options li{
+    display: block; 
+    width: 100%;
+}

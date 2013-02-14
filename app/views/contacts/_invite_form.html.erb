@@ -1,0 +1,17 @@
+<%
+@message="Enter Message here please"
+%>
+<div class="display-block">
+  <div class="space-left-20 display-clear space-top-10 space-bottom-10">
+    <%= simple_form_for :invite, :url => contacts_invite_path, :remote=>true do |f| %>
+      <div class="input">
+        <label>From:</label>
+        <span class="space-top-5 display-block left"><%= current_user.first_name  %> (<%= current_user.email %>)</span>
+      </div>
+      <%= f.input :enter_email, :as=>:text, :placeholder=>"enter email to invite", :input_html=>{ :class=>'api-form-width' } %>
+      <%= f.input :enter_message, :as=>:text,:placeholder=>@message, :input_html=>{:rows=>15, :cols=>5 }, :required=>true %>
+      <%= f.submit 'invite' %> or <%= link_to 'Cancel',  user_contacts_path(current_user.id) %>
+    </div>
+
+  <% end %>
+</div>

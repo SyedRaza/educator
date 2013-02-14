@@ -1,0 +1,65 @@
+<%= content_for :page_heading do %>
+  <div class="heading-blue-medium-white-exlarge heading-inner white"><span class="font-18">Block list</span> - Settings</div>
+<% end %>
+<%= content_for :right_side_bar do %>
+  <%=  render :partial => 'settings/right_side_bar' %>
+<% end %>
+<div class="container-inner-white-exlarge left-border border-color overflow-hidden">
+  <div class="space-top-10 space-left-10 space-right-10">
+    <div class="setting-container">
+      <div class="setting-container-top">
+        <span class="bold">Block users</span>
+      </div>
+      <%= content_tag :div, :class=>"setting-container-sub-title" do %>
+        <%= content_tag :span do %>
+          Once you block someone, that person can no longer be your
+          friend and cannot send messages or contact requests.
+        <% end %>
+      <% end %>
+
+
+      <div class="setting-container-form">
+        <%= simple_form_for :block, :remote=>true do |f| %>
+          <%= f.input :name,
+            :as=>:select,
+            :collection=>current_user.companions,
+            :input_html=>{ :class=>"combo-box" }
+
+          %>
+
+        <% end %>
+
+        <div class="field-box">
+          <label for="txt-block-name">Name </label><input id="txt-block-name" name="block-name" type="text" /> <input value="Block" type="button" />
+        </div>
+        <div class="space-top-inner-15">
+          <div class="field-box bottom-border border-color space-bottom-inner-10">
+            <span class="bold">
+              Blocked Persons
+            </span>
+          </div>
+          <% @list.each do |l| %>
+
+            <div class="details left bottom-border border-color space-left-inner-10 space-top-inner-10 space-bottom-inner-10">
+              <img src="/images/<%=  l[:image]%>" title="<%=  l[:first_name] %> <%= l[:last_name] %>" class="left"/>
+              <div class="detail-content space-left-10 space-top-inner-15">
+                <a href="/users/1/messages/1" class="space-left-10 space-right-10" ><%=  l[:first_name] %> <%= l[:last_name] %></a> <a href="#" id="unblock" class="right" > Unblock</a>
+              </div>
+            </div>
+          </div>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="border-bottom-gradient"></div>
+<%= content_for :css do %>
+  <%= stylesheet_link_tag 'settings/global.css' %>
+<%end%>
+<%= content_for :js do %>
+  <%= javascript_include_tag 'settings/blocklist.js' %>
+  <script>$('div.setting-container-form').show()</script>
+<%end%>
+
+

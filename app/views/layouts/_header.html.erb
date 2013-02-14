@@ -1,0 +1,82 @@
+<header class="bottom-border border-dark" id="header">
+  <div class="header-inner">
+    <div class="logo left space-top-inner-5"><a href="/"><img alt="educatorsplanet" src="/images/logo.png" /></a></div>
+    <div class="right overflow-hidden">
+      <div class="display-block overflow-hidden">
+        <div class="sub-nav-small space-top-5 text-center font-11 right white">
+
+          <%if current_user.nil? %>
+            <a href="#">Home</a>
+            <span class="space-5">|</span>
+            <a href="/users/sign_in" id="sign-in-link" >Sign In</a>
+            <a href="" id="sign-up-link" class="hide">Sign Up</a>
+          <%else%>
+            <a href="/users/<%= current_user.id  %>/settings/account">Settings</a>
+            <span class="space-5">|</span>
+            <%= link_to "Sign Out", '/users/logout' %>
+          <%end%>
+        </div>
+      </div>
+
+      <nav class="right white display-clear space-top-inner-5 space-right-inner-10 space-bottom-inner-10 space-left-inner-20
+           space-top-10 display-block white">
+           <%if current_user.nil? %>
+          <ul>
+            <li class="right-border border-light"><a href="#">Educators</a></li>
+            <li class="right-border border-light"><a href="#">Discussion Board</a></li>
+            <li class="right-border border-light"><a href="#">Showcase</a></li>
+            <li class="right-border border-light"><a href="#">Questions</a></li>
+            <li class="right-border border-light"><a href="#">Archives</a></li>
+          </ul>
+        <%else%>
+          <%= content_tag :ul do %>
+            <%= content_tag :li, :class=>"right-border border-light" do %>
+              <%= link_to 'My Profile', user_path( current_user ) %>
+            <% end %>
+
+            <%= content_tag :li, :class=>"right-border border-light main-nav" do %>
+              <%= link_to "Messages #{ count_unread_messages }",
+                user_messages_path( current_user ) %>
+              <%= content_tag :ul,
+                :class=>'display-none border-light left-border right-border bottom-border' do %>
+                <%= content_tag :li, :class=>"sub-nav" do %>
+                  <%= render :partial=>'/shared/messages' %>
+                <% end %>
+              <% end %>
+            <% end %>
+
+            <%= content_tag :li, :class=>"right-border border-light main-nav" do %>
+              <%= link_to "Requests #{ count_requests }", user_requests_path( current_user ) %>
+              <%= content_tag :ul,
+                :class=>'display-none border-light left-border
+                         right-border bottom-border' do %>
+                <%= content_tag :li, :class=>"sub-nav" do %>
+                  <%= render :partial=>'/shared/requests' %>
+                <% end %>
+              <% end %>
+
+            <% end %>
+
+            <%= content_tag :li, :class=>"right-border border-light main-nav" do %>
+              <%= link_to "Contacts", user_contacts_path( current_user )  %>
+              <%= content_tag :ul,
+                :class=>'display-none border-light left-border
+                         right-border bottom-border'  do %>
+                <%= content_tag :li, :class=>"sub-nav" do %>
+                  <%= render :partial=>'/shared/contacts' %>
+                <% end %>
+              <% end %>
+            <% end %>
+
+
+            <%= content_tag :li, :class=>"right-border border-light" do  %>
+              <%= link_to "Archives", archives_path %>
+            <% end %>
+
+          <% end %>
+        <%end%>
+      </nav>
+
+    </div>
+  </div>
+</header>

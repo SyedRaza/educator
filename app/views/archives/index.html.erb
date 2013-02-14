@@ -1,0 +1,83 @@
+<%= content_for :right_side_bar do %>
+  <%=  render :partial => 'archives/right_side_bar' %>
+
+<% end %>
+<%= content_for :page_heading do %>
+  <div class="heading-blue-small-white-exlarge heading-inner white">Archives</div>
+
+<% end %>
+<div class="container-inner-white-exlarge left-border border-color overflow-hidden">
+  <div class="right">
+    <input id="add-archive" value="Add to Archive" type="button" />
+  </div>
+  <div class="tabs heading-background-color space-top-10  space-left-inner-5 space-right-inner-5 ">
+    <ul>
+      <li><a class="active" href="#">Showcase</a></li>
+      <li><a href="#">Most Recent</a></li>
+      <li><a href="#">Popular</a></li>
+    </ul>
+  </div>
+
+
+  <div class="discussion-board-top-details">
+    <div class="discussion-board-comments bottom-border border-color space-top-inner-10 space-bottom-inner-10">
+      <div class="lt"><img src="images/pic-1.jpg" /><span class="font-11"><a href="#">Person Name</a></span></div>
+      <div class="rt">
+        <div class="details"><strong>Title :</strong> <a href="#">Lorem ipsum dolor sit amet</a></div>
+        <div class="details"><strong>Grade :</strong> <a href="#">9th</a> , <strong>Subject :</strong> <a href="#">Maths</a></div>
+        <div class="details"><strong>Tags :</strong> <a href="#">Maths</a> , <a href="#">Algebra</a> , <a href="#">K12</a> , <a href="#">High school</a></div>
+        <div class="details"><a href="#"><strong>Abstract :</strong></a> Lorem ipsum dolor sit amet, consectetur adipisicing elit, eiusmod sed do , Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</div>
+
+
+        <div id="archive-status-bar-1" class="status-actions font-11 light-color-text">
+          <ul>
+            <li class="left space-right-inner-5">Posted at 11:00</li>
+            <li class="left space-right-inner-5"><a href="#">Favourite</a></li>
+            <li class="left space-right-inner-5"><a href="#">Report</a></li>
+            <li class="left"><a href="#"><img class="like" src="/images/like.png"  alt="like" onmouseover="this.src='/images/like-active.png'" onmouseout="this.src='/images/like.png'"/></a></li>
+            <li class="left"><a href="#"><img class="un-like" src="/images/dislike.png"  alt="un like" onmouseover="this.src='/images/dislike-active.png'" onmouseout="this.src='/images/dislike.png'" /></a></li>
+            <li class="right">
+              <%= link_to 'View All Comments',"/users/#{1}/archives/#{1}/comments/", :remote=>true, :class=>'view-all-comments action space-bottom-10' %>
+              <%= link_to 'Hide Comments',"/users/#{1}/archives/#{1}/comments/?value='true'", :remote=>true, :class=>'hide-comments action' %>
+            </li>
+          </ul>
+        </div>
+        <div class="view-comments hide space-top-5"></div>
+
+      </div>
+    </div>
+    <div class="discussion-board-comments bottom-border border-color space-top-inner-10 space-bottom-inner-10">
+      <div class="lt"><img src="images/pic-1.jpg" /><span class="font-11"><a href="#">Person Name</a></span></div>
+      <div class="rt">
+
+        <div class="details"><strong>Title :</strong> <a href="#">Lorem ipsum dolor sit amet</a></div>
+        <div class="details"><strong>Grade :</strong> <a href="#">9th</a> , <strong>Subject :</strong> <a href="#">Maths</a></div>
+        <div class="details"><strong>Tags :</strong> <a href="#">Maths</a> , <a href="#">Algebra</a> , <a href="#">K12</a> , <a href="#">High school</a></div>
+        <div class="details"><a href="#"><strong>Abstract :</strong></a> Lorem ipsum dolor sit amet, consectetur adipisicing elit, eiusmod sed do , Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</div>
+
+
+        <div class="video"><video id="home-video" src="/videos/geometry.ogg" controls="controls">
+            your browser does not support the video tag
+          </video></div>
+
+        <div id="archive-status-bar-2" class="status-actions font-11 light-color-text">
+          <ul>
+            <li class="left space-right-inner-5">Posted at 11:00</li>
+            <li class="left space-right-inner-5"><a href="#">Favourite</a></li>
+            <li class="left space-right-inner-5"><a href="#">Report</a></li>
+            <li class="left"><a href="#"><img class="like" src="/images/like.png"  alt="like" onmouseover="this.src='/images/like-active.png'" onmouseout="this.src='/images/like.png'"/></a></li>
+            <li class="left"><a href="#"><img class="un-like" src="/images/dislike.png"  alt="un like" onmouseover="this.src='/images/dislike-active.png'" onmouseout="this.src='/images/dislike.png'" /></a></li>
+            <li class="right">
+              <%= link_to 'View All Comments',"/users/#{1}/archives/#{2}/comments/", :remote=>true, :class=>'view-all-comments action' %>
+              <%= link_to 'Hide Comments',"/users/#{1}/archives/#{2}/comments/?value='true'", :remote=>true, :class=>'hide-comments action' %>
+            </li>
+          </ul>
+        </div>
+
+        <div class="view-comments hide"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<%= stylesheet_link_tag "archives/all" %>

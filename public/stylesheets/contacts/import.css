@@ -1,0 +1,31 @@
+/* 
+    Document   : import.css
+    Created on : May 25, 2011, 7:09:04 PM
+    Author     : razakhalid
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+.member-list{
+    width:300px;
+}
+.non-member-list{
+    width:350px;
+}
+.scrollable-list-container{
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.api-form-width {
+    width: 180px;
+}
+img.tab-pic {
+    width:20px;
+    height:20px;
+}

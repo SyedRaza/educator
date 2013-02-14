@@ -1,0 +1,50 @@
+
+/* Account Setting (28 April 2011) */
+.heading-bottom-border {
+	border-bottom:3px solid;
+	width:100%;
+}
+
+.setting-container {
+	margin:20px 0px;
+}
+.close{
+    display: none;
+}
+.setting-container .rt { float:right; }
+.setting-container .lt { float:left; }
+.setting-container-top { border-bottom:1px solid #e3eaf4; padding-bottom:4px; overflow:hidden; }
+.setting-container-sub-title { padding:4px 0px; font-size:11px; display:block; min-height:16px; }
+
+.setting-container-form { overflow:hidden; display:none;padding:20px 0px 10px 0px; }
+.setting-container-form p { margin:0px; padding:0px 0px 3px 0px;}
+.setting-container-form input[type="text"], .setting-input-field{ width:280px ; border: 1px solid #b9b9b9 ; }
+.setting-container-form input[type="password"] { width:280px; border:1px solid #b9b9b9; }
+.setting-container-form select { width:280px; border:1px solid #b9b9b9; }
+.setting-container-form textarea { width:280px; height:50px; border:1px solid #b9b9b9; }
+
+
+
+
+.setting-container-form .visibality-box { background:#fafbfd; padding:4px 5px; margin-bottom:2px; overflow:hidden; }
+.setting-container-form .visibality-box ul { margin:0px; padding:0px; list-style:none; }
+.setting-container-form .visibality-box ul li { margin:0px; padding:0px; }
+.setting-container-form .visibality-box ul li.field { margin:0px; padding:0px; float:left; }
+.setting-container-form .visibality-box ul li.security-option { margin:0px; padding:0px; float:right; }
+.setting-container-form .visibality-box ul li.security-option select { width:120px; background:#a5b3c6; color:#FFF; height:18px; }
+.setting-container-form .visibality-box ul li.security-option select option { background:#FFFFFF; color:#767b88; }
+.setting-container-form .color-dark { background:#ebf0f7; }
+
+.setting-left-side-content { margin-left: 165px; }
+
+.error-message{
+    position: absolute;
+    color: red;
+}
+.radio-buttons>span{
+    float: none !important;
+    display: block !important;
+    overflow: hidden !important;
+    width: auto !important;
+}
+.radio-buttons>label{ width: 150px !important;  }

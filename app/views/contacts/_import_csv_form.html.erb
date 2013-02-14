@@ -1,0 +1,6 @@
+<div class="import-contacts width-100-percent space-top-15 space-left-15">
+  <%= simple_form_for :import, :url => '/contacts/import', :html => { :multipart => true },:remote=>true do |f| %>
+    <%= f.input :upload_csv, :as=>:file %>
+    <%= f.submit 'Upload' %> or <a href="#" class="cancel">Cancel</a>
+  <% end %>
+</div>

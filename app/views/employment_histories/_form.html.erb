@@ -1,0 +1,30 @@
+<%
+  @message= "use comma(,) to add new entry"
+%>
+<%= simple_form_for([@user, @employment_history], :remote=>true) do |f| %>
+  <div class="profile-details-form">
+    <% if @show_employer == true %>
+      <%= f.input :employer_id, :as=>:string, :required=>true, :input_html=>{:maxlength=>30} %>
+    <% else %>
+      <%= f.input :employer, :input_html=>{:maxlength=>50,:class=>'hide'},:label=>false %>
+      <%= f.input :employer_id, :as=>:hidden %>
+    <% end %>
+    <%= f.input :position, :required=>true, :input_html=>{:maxlength=>30} %>
+
+
+    <%= f.input :role_description, :required=>true ,:as=>:text, :input_html=>{:rows =>4, :cols=>30}, :hint=>"<a class='pop-up' href='/employment_histories/examples'>See Examples</a>".html_safe %>
+    <%= f.input :grade_list, :label=>"Grades", :input_html=>{ "data-pre"=> @employment_history.grades.map(&:attributes).to_json }  %>
+    <%= f.input :subject_list, :label=>"Subjects", :input_html=>{:maxlength=>50 , "data-pre"=> @employment_history.subjects.map(&:attributes).to_json} %>
+    <%= f.input :my_interest_list, :label=>"My Interest", :input_html=>{ "data-pre"=> @employment_history.my_interest.map(&:attributes).to_json } %>
+
+    <%= f.input :start_date, :as => :date, :start_year => Date.today.year - 60,
+                                :end_year => Date.today.year, :discard_day => true,
+                                :order => [:month, :year] %>
+    <%= f.input :end_date, :as => :date, :prompt => 'present',:start_year => Date.today.year - 58,
+                                :end_year => Date.today.year, :discard_day => true,
+                                :order => [:month, :year] %>
+
+    <%= f.submit 'Save' %>
+    <input type="button" value="Cancel" class="action cancel"/>
+  </div>
+<% end %>

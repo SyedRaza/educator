@@ -1,0 +1,49 @@
+<% content_for :css do %>
+  <%= stylesheet_link_tag "dashboard/home" %>
+  <%= stylesheet_link_tag "messages/show" %>
+  <%= stylesheet_link_tag "jquery.fancybox-1.3.4"  %>
+<% end %>
+
+<div class="discussion-board-comments bottom-border border-color space-top-inner-10 space-bottom-inner-10">
+  <div class="title space-bottom-10 bottom-border border-color display-clear min-height">
+    <%= show_for @message do |m|  %>
+      <span class="font-18">
+        <img class="left " src="/images/subject.png" align="absmiddle"/>
+        <%= m.value :subject, :wrapper_html=>{ :class=>'left bold space-left-10' } %>
+      </span>
+    </div>
+    <div class="clear left space-bottom-10">
+      <%= link_to( image_tag( m.object.sender.display_picture.url(:thumb), :class=>'pic') , user_path(@user) ,:class=>'left  space-top-10 space-right-10') %>
+      <%= link_to m.object.sender.first_name, user_path(m.object.sender), :class=>'display-block clear' %>
+    </div>
+    <%= m.value :body, :wrapper_html=>{ :class=>'space-bottom-10' }%>
+    <% m.value :created_at, :wrapper_html=>{ :class=>'right font-10 clear' } do %>
+      <%= get_current_user_time( m.object.created_at ) %>
+    <% end %>
+    <% unless m.object.uploads.first.nil? %>
+      <% if m.object.uploads.first.attachment.file? %>
+        <div class="display-clear space-bottom-10 ">
+          <% m.object.uploads.each do |u| %>
+            <%= link_to("<img src='/images/attached.jpg' />  #{image_tag(u.attachment.url,
+              :class=>"space-left-10 image-preview ")}".html_safe, u.attachment.url,
+              :class=>'image-viewer') %>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+
+  <% end %>
+
+  <%= get_replies_for(@message) %>
+
+
+  <%= render :partial=>'reply_form', :locals=>{ :id => get_last_message(@message) } %>
+</div>
+
+<%= content_for :right_side_bar do %>
+  <%=  render :partial => 'messages/right_side_bar' %>
+<% end %>
+<%= content_for :js do %>
+  <%= javascript_include_tag "jquery.fancybox-1.3.4.pack" %>
+  <%= javascript_include_tag "messages/show" %>
+<% end %>

@@ -1,0 +1,48 @@
+<%
+id = check_user_id( params )
+%>
+<% if history.user_id == id %>
+  <%= show_for history do |s| %>
+    <div class="employment-histories-content ">
+
+
+      <%= s.attribute :position %>
+      <%= s.attribute :role_description %>
+
+      <%= s.attribute :grades unless s.object.grades.empty?  %>
+
+      <%= s.attribute :subjects unless s.object.subjects.empty? %>
+      <%= s.attribute :my_interest unless s.object.my_interest.empty? %>
+
+      <div  class="two-column left" >
+        <span class="label">Duration</span>
+        <%= s.value :month_year %>
+      </div>
+
+
+    </div>
+    <% if current_user.id == id %>
+      <span class="action-options">
+        <dl class="options">
+          <dt>
+            <a href="#">&nbsp;</a>
+          </dt>
+          <dd>
+            <ul>
+              <li>
+                <%= link_to 'Edit',
+                  "/users/#{current_user.id}/employment_histories/#{s.object.id}/edit/?value=true",
+                  :remote=>true, :class=>'action edit left' %>
+              </li>
+              <li>
+              <%= link_to 'Delete', "/users/#{current_user.id}/employment_histories/#{s.object.id}",
+                  :confirm => "Are you sure you want to delete this education?", :method=>:delete ,
+                  :class=>'action delete' , :remote=>true %></li>
+            </ul>
+          </dd>
+        </dl>
+      </span>
+
+    <% end %>
+  <% end %>
+<% end %>

@@ -1,0 +1,18 @@
+<% unless users.nil? %>
+  <div id="members-list-<%=current_user.id%>" >
+    <%  users.each do |usr|%>
+      <%= show_for usr, :class=>'show-contact-hr space-right-10' do |u|  %>
+        <div class="details display-inline-block bottom-border border-color">
+          <%= check_box_tag 'already_member[]', u.object.id ,false %>
+          <%= image_tag u.object.display_picture.url() , :alt=>'user' %>
+          <div class="contact-name">
+            <a href="/users/<%= u.object.id %>">
+              <%= u.value :first_name, :wrapper_html=>{:class=>'left space-right-5'} %>
+              <%= u.value :last_name %>
+            </a>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

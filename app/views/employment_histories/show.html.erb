@@ -1,0 +1,13 @@
+<%= show_for @employment_history do |s| %>
+  <%= s.attribute :school_attended %>
+  <%= s.attribute :school_city %>
+  <%= s.attribute :state %>
+  <%= s.attribute :year_started %>
+  <%= s.attribute :year_ended %>
+  <%= s.association :user %>
+  <%= s.association :subject %>
+  <%= s.association :grade %>
+<% end %>
+
+<%= link_to 'Edit', edit_employment_history_path(@employment_history) %> |
+<%= link_to 'Back', employment_histories_path %>

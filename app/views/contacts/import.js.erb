@@ -1,0 +1,32 @@
+<%unless params[:import].nil?%>
+  $('div#csv-info-container-<%=  current_user.id%>')
+  .html('<%= escape_javascript(render :partial=> '/contacts/import_list',
+    :locals=>{:not_member_list=>@not_member_list,:users => @already_member_list} )%>');
+<% end %>
+<%unless params[:not_member_list].nil? %>
+  $('span#not-member-count').html('');
+  $('div#not-member-container').html('<span>Invitation email successfully sent</span>');
+<% end %>
+
+<%unless params[:already_member].nil? %>
+  $('span#member-count').html('');
+  $('div#member-container').html('<span>Add Request has been sent successfully</span>');
+<% end %>
+<%unless params[:import_form].nil?%>
+  <%unless @error.nil?%>
+    $('div#<%=@type_of_import%>-info-container-<%=  current_user.id%>').prepend('<span class="display-block text-align-center width-100-percent bold red" ><%= @error %></span>')
+  <%else%>
+    $('div#<%=@type_of_import%>-info-container-<%=  current_user.id%>')
+    .html('<%= escape_javascript(render :partial=> '/contacts/import_list',
+      :locals=>{:not_member_list=>@not_member_list,:users => @already_member_list} )%>');
+  <%end%>
+<%end%>
+<%unless params[:type].nil?%>
+  <%if params[:type].eql? 'csv'%>
+    $('div#<%=params[:type]%>-info-container-<%=  current_user.id%>')
+    .html('<%= escape_javascript(render :partial=>'import_csv_form') %>');
+  <%else%>
+    $('div#<%=params[:type]%>-info-container-<%=  current_user.id%>')
+    .html('<%= escape_javascript(render :partial=>'import_form', :locals =>{:type_of_import=>params[:type]}) %>');
+  <%end%>
+<%end%>

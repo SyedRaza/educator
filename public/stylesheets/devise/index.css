@@ -1,0 +1,222 @@
+
+
+
+
+
+
+/* ######################## Content Tabs Start Here ######################## */
+body > section {
+    width:1000px;
+    overflow:hidden;
+    height:auto;
+    display:block;
+    margin:0px auto;
+}
+body > section > header {
+    width:940px;
+    padding:30px;
+    padding-bottom:0px;
+    background:none;
+    overflow:hidden;
+    height:auto;
+    display:block;
+}
+
+
+body > section > section {
+    width:980px;
+    overflow:hidden;
+    display:block;
+    margin:30px auto 0px auto;
+}
+.header-slider {
+    width:463px;
+    height:225px;
+    background:url(/images/slider.jpg) no-repeat;
+}
+.header-signup {
+    width:370px;
+    height:185px;
+    padding:20px 35px;
+    background:url(/images/header-signup-bg.jpg) no-repeat;
+    font-family:"Century Gothic", Arial, Tahoma , Verdana;
+    color:#FFFFFF;
+}
+.header-signup h1  {
+    font-size:16px;
+    text-align:center;
+    display:block;
+    margin-bottom:15px;
+}
+
+body > section > section > aside {
+    width:255px;
+    display:block;
+    overflow:hidden;
+    float:right;
+}
+body > section > section > article {
+    width:705px;
+    height:100%;
+    overflow:hidden;
+    display:block;
+    float:left;
+}
+body > section > section > article > aside {
+    width:295px;
+    height:100%;
+    overflow:hidden;
+    display:block;
+    float:left;
+}
+body > section > section > article > article {
+    width:385px;
+    height:100%;
+    overflow:hidden;
+    display:block;
+    float:right;
+}
+
+.container {
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    display:block;
+    margin-bottom:25px;
+}
+.container-inner-gray-small {
+    width:243px;
+    margin-left:11px;
+    background:url(/images/container-inner-gray-small-background.jpg) no-repeat;
+    background-color:#f2f2f2;
+}
+.container-inner-gray-medium {
+    width:283px;
+    margin-left:11px;
+    background:url(/images/container-inner-gray-medium-background.jpg) no-repeat;
+    background-color:#f2f2f2;
+}
+.container-inner-gray-large {
+    width:373px;
+    margin-left:11px;
+    background:url(/images/container-inner-gray-large-background.jpg) no-repeat;
+    background-color:#f2f2f2;
+}
+.container-inner-gray-exlarge {
+    width:692px;
+    margin-left:11px;
+    background:url(/images/container-inner-gray-exlarge-background.jpg) no-repeat;
+    background-color:#f2f2f2;
+}
+.container-inner-white-small {
+    width:243px;
+    margin-left:11px;
+    background:url(/images/container-inner-white-small-background.jpg) no-repeat;
+}
+.container-inner-white-medium {
+    width:283px;
+    margin-left:11px;
+    background:url(/images/container-inner-white-medium-background.jpg) no-repeat;
+}
+.container-inner-white-large {
+    width:373px;
+    margin-left:11px;
+    background:url(/images/container-inner-white-large-background.jpg) no-repeat;
+}
+.container-inner-white-exlarge {
+    width:692px;
+    margin-left:11px;
+    background:url(/images/container-inner-white-exlarge-background.jpg) no-repeat;
+}
+
+
+.pic-small { width:46px; height:46px; padding:1px; border-style: solid; border-width:1px; }
+.pic-small img { width:45px; height:45px0; border:1px solid #FFF; }
+
+
+/* Testimonial */
+.textimonial-scroll-box { width:283px; height:250px; overflow-y:scroll; }
+.textimonial-box { overflow:hidden; padding:18px 10px; }
+.textimonial-box .pic { margin-right:10px; width:70px; height:70px; border-style: solid; border-width:1px; }
+.textimonial-box .details {
+    width:155px;
+}
+.textimonial-box .pic img { width:68px; height:68px; border:1px solid #FFF; }
+
+
+
+
+/* Group */
+.group-icon { width:30px; height:30px; }
+
+
+/* Discussion Board */
+.discussion-board-box { }
+.discussion-board-box-left { width:51px; }
+.discussion-board-box-left img { width:49px; border:1px solid #FFF; }
+.discussion-board-box-right { width:280px; }
+.discussion-board-box-time-n-tabs { }
+.discussion-board-box-time-n-tabs ul { margin:0px; padding:0px; list-style:none; }
+.discussion-board-box-time-n-tabs ul li { float:left; padding-right:10px; font-size:11px; }
+.discussion-board-box-enter-message { }
+.discussion-board-box-enter-message input[type="text"] { height:25px; width:350px; border-style:solid; border-width:1px; color:#666666; }
+.discussion-board-comments-box { overflow:hidden; height:100%; }
+.discussion-board-comments-box-left { width:40px; }
+.discussion-board-comments-box-left .pic { width:40px; height:40px; }
+.discussion-board-comments-box-left .pic img { width:40px; height:40px; }
+.discussion-board-comments-box-right { width:280px; }
+
+.discussion-board-questions { overflow:hidden; height:100%; padding:5px 10px 10px 10px; }
+.discussion-board-questions-icon { width:40px; height:40px; float:left; padding:5px 0px 0px 5px; }
+.discussion-board-questions-answers { float:left; width:290px; padding-left:10px; }
+
+
+#sign-in-form  .field-box ,#sign-up-form .field-box, #lost-pass-email .field-box, #reset-pass .field-box  {
+    height:18px;
+}
+#sign-in-form label,#sign-up-form label, #lost-pass-email label, #reset-pass label  {
+    height:18px;
+    width:130px;
+}
+
+#sign-in-form  input[type="text"], #sign-up-form input[type="text"], #reset-pass input[type="text"], #lost-pass-email input[type="text"]  {
+    height:18px;
+    width:206px;
+    background:url(/images/sign-up-text-field.gif) no-repeat;
+
+    color:#666666;
+}
+#sign-in-form input[type="password"],#sign-up-form input[type="password"], #reset-pass input[type="password"]  {
+    height:18px;
+    width:206px;
+    background:url(/images/sign-up-text-field.gif) no-repeat;
+
+    color:#666666;
+}
+#sign-in-form input[type="submit"] , #sign-up-form input[type="submit"], #lost-pass-email input[type="submit"], #reset-pass input[type="submit"]  {
+    height:21px;
+    width:83px;
+    background:url(/images/bt-signup.jpg) no-repeat;
+    border: none;
+    color:#666666;
+    margin-left: 140px;
+    margin-top: 5px;
+}
+#sign-up-form label.collection_radio{
+    width:30px !important;    
+}
+
+div.input.radio span { float: left; width: 80px;}
+div.input.radio span > input { float: left; width: 20px; margin: 0px;}
+div.input.radio span > label { float: left; width: 50px; margin: 0px; padding-left: 5px; text-align: left;}
+
+
+/*div.radio span{
+    float:left;
+
+}*/
+.welcome-page-link{
+    margin-left: 140px;
+    width: 206px;
+    
+}

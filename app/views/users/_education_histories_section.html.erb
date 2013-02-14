@@ -1,0 +1,16 @@
+<div id="education-history-<%=current_user.id%>" class="info-section" >
+  <div class="profile-heading space-bottom-10 green-background">
+    <%= content_tag :div, "Education Information", :class=>'title' %>
+    <div class="actions" id="education-history-actions">
+      <% if @relation_type == :self_profile %>
+        <a href="#" class="action cancel education-history">Cancel</a>
+        <%= link_to 'Add a new Education ',
+          "/users/#{@user.id}/education_histories/new",
+          :remote=>true, :class=>'action new education-history' %>
+      <% end %>
+    </div>
+  </div>
+  <div class="info-details">
+    <%= render :partial=>'education_histories/edu_info',:locals=>{ :user=>@user } %>
+  </div>
+</div>

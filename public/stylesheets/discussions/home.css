@@ -1,0 +1,17 @@
+/* 
+    Document   : home
+    Created on : May 4, 2011, 2:31:29 PM
+    Author     : kamal
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+.poll-question{
+    width: 300px;
+    height: 35px;
+}

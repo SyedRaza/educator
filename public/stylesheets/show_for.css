@@ -1,0 +1,72 @@
+.show_for{
+    overflow: hidden;
+    width: 525px;
+    padding-top: 10px;
+}
+
+.show_for > div{
+    width: 525px;
+    display: block;
+    float: left;
+    margin-bottom: 10px;
+}
+
+.show_for .label{
+    width: 150px;
+    display: block;
+    float: left;
+    margin-right: 15px;
+    text-align: right;
+    font-weight: bold;
+}
+
+.show_for .right-area{
+    width: 330px;
+    display: block;
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+.show_for .content{
+    width: 100%;
+
+}
+
+div.show_for.employer{
+    margin-bottom: 0px;
+}
+.show_for .employment-histories-content{
+    width: 460px;
+}
+div.show_for>.employment-histories-content>div{
+    margin-bottom: 10px;
+}
+div.show_for .employment-histories-content .content{
+    display: block;
+    overflow: hidden;
+    width: 294px;
+}
+.two-column>div{
+    display: inline-block;
+}
+.two-column>div span{
+    width:100%;
+
+}
+.show_for.message > div{
+
+    width: 400px;
+}
+.show_for.friend-popup .label{
+    width: 63px;
+    display: block;
+    float: left;
+    font-weight: bold;
+    margin-right: 15px;
+    text-align: right;
+}
+
+.show_for.inner-container{ width: auto; padding: 0; }
+.show_for.inner-container>div{ width: auto; margin-bottom: 0; }
+
+.main-nav .sub-nav{ padding: 0 15px; }

@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Model version="3.0">
+<Configuration>
+<Property name="dialect" value="MySQLDialect"/>
+<Property name="ALIAS" value="eplanet"/>
+<Property name="DRIVER" value="com.mysql.jdbc.Driver"/>
+<Property name="PASSWORD" value="epl@neT"/>
+<Property name="PROMPTFORPASSWORD" value="false"/>
+<Property name="URL" value="jdbc:mysql://localhost:3306/eplanet"/>
+<Property name="USER" value="eplanet"/>
+</Configuration>
+<Domains/>
+<Tables>
+<Table id="f93a5197-47d5-4975-b408-82a2393f81bf" name="education_histories" schema="">
+<Property name="LOCATION" value="20:20"/>
+<Comment/>
+<Attribute datatype="INT" defaultvalue="" extra="AUTO_INCREMENT PRIMARY KEY" fraction="0" id="1c09a2f4-25b4-4c2c-afc7-bc6f6885cc17" name="id" nullable="false" scale="10" size="10">
+<Comment/>
+</Attribute>
+<Attribute datatype="DATE" defaultvalue="" extra="" fraction="0" id="8164f69d-aec3-48a8-b196-1606aeaa6562" name="school_attended" nullable="true" scale="10" size="10">
+<Comment/>
+</Attribute>
+<Attribute datatype="DATE" defaultvalue="" extra="" fraction="0" id="9fad0a49-b987-42f6-9cfd-4d2a08a3f954" name="year_graduated" nullable="true" scale="10" size="10">
+<Comment/>
+</Attribute>
+<Attribute datatype="VARCHAR" defaultvalue="" extra="" fraction="0" id="46de1d6f-73bc-4f62-9fd0-050f29bd7608" name="major" nullable="true" scale="10" size="255">
+<Comment/>
+</Attribute>
+<Attribute datatype="INT" defaultvalue="" extra="" fraction="0" id="9c161259-4311-4664-ab97-e941ccd63f26" name="user_id" nullable="true" scale="10" size="10">
+<Comment/>
+</Attribute>
+<Attribute datatype="DATETIME" defaultvalue="" extra="" fraction="0" id="a29fb93b-57d7-42b9-a31e-df6bcbc9beb8" name="created_at" nullable="true" scale="10" size="19">
+<Comment/>
+</Attribute>
+<Attribute datatype="DATETIME" defaultvalue="" extra="" fraction="0" id="945239a1-82c0-4b29-b00e-f51a5cb5adcc" name="updated_at" nullable="true" scale="10" size="19">
+<Comment/>
+</Attribute>
+<Index id="4a4a4676-ce7c-4289-8541-c5c3ee2260a0" indextype="PRIMARYKEY" name="PK_education_histories">
+<Indexattribute attributerefid="1c09a2f4-25b4-4c2c-afc7-bc6f6885cc17" id="78dee654-898c-4b4d-883a-341748496175"/>
+</Index>
+</Table>
+<Table id="403f6681-7c4b-4f5d-a27e-0e032c2b7231" name="educator_types" schema="">
+<Property name="LOCATION" value="259:20"/>
+<Comment/>
+<Attribute datatype="INT" defaultvalue="" extra="AUTO_INCREMENT PRIMARY KEY" fraction="0" id="fdd4f48b-a104-42d1-9cec-485ce0082465" name="id" nullable="false" scale="10" size="10">
+<Comment/>
+</Attribute>
+<Attribute datatype="VARCHAR" defaultvalue="" extra="" fraction="0" id="118354e2-7b4a-4aa0-acfe-94741c3d79d3" name="title" nullable="true" scale="10" size="255">
+<Comment/>
+</Attribute>
+<Attribute datatype="DATETIME" defaultvalue="" extra="" fraction="0" id="c9489dee-49ca-4d97-8b69-cd4f7701cc55" name="created_at" nullable="true" scale="10" size="19">
+<Comment/>
+</Attribute>
+<Attribute datatype="DATETIME" defaultvalue="" extra="" fraction="0" id="daa5c429-7cda-4c8c-abe6-0795b8e5b678" name="updated_at" nullable="true" scale="10" size="19">
+<Comment/>
+</Attribute>
+<Index id="acb56939-86b5-4c04-ba09-3eec5c0d26f9" indextype="PRIMARYKEY" name="PK_educator_types">
+<Indexattribute attributerefid="fdd4f48b-a104-42d1-9cec-485ce0082465" id="438ce09d-71bc-4adb-83f0-a1ee4bdc849c"/>
+</Index>
+</Table>
+<Table id="c6bd997d-f893-4f3c-aef7-cb52546ce6bf" name="employment_grade_associations" schema="">
+<Property name="LOCATION" value="494:20"/>
+<Comment/>
+<Attribute datatype="INT" defaultvalue="" extra="AUTO_INCREMENT PRIMARY KEY" fraction="0" id="edc5162a-e427-410d-bd30-62f61fee0bf5" name="id" nullable="false" scale="10" size="10">
+<Comment/>
+</Attribute>
+<Attribute datatype="INT" defaultvalue="" extra="" fraction="0" id="415ff0cf-9a79-40f4-89e6-df32109d1e6a" name="employment_history_id" nullable="true" scale="10" size="10">
+<Comment/>
+</Attribute>
+<Attribute datatype="INT" defaultvalue="" extra="" fraction="0" id="e83fbf60-007d-408c-a99c-a72ee27edb93" name="grade_id" nullable="true" scale="10" size="10">
+<Comment/>
+</Attribute>
+<Attribute datatype="DATETIME" defaultvalue="" extra="" fraction="0" id="56a7f3e3-03d1-43c4-932f-6f3cf179da5a" name="created_at" nullable="true" scale="10" size="19">
+<Comment/>
+</Attribute>
+<Attribute datatype="DATETIME" defaultvalue="" extra="" fraction="0" id="edb0b334-ab2b-4fd1-a572-7a3acad4cbd9" name="updated_at" nullable="true" scale="10" size="19">
+<Comment/>
+</Attribute>
+<Index id="92b01ed8-8f5b-4bdb-9c8e-3b4a4e4ed360" indextype="PRIMARYKEY" name="PK_employment_grade_associations">
+<Indexattribute attributerefid="edc5162a-e427-410d-bd30-62f61fee0bf5" id="a5686e3e-e0a0-4df0-b41a-0fc1b584475a"/>
+</Index>
+</Table>
+<Table id="a7683702-da53-46a6-bee3-f981e80b3d00" name="employment_histories" schema="">
+<Property name="LOCATION" value="762:20"/>
+<Comment/>
+<Attribute datatype="INT" defaultvalue="" extra="AUTO_INCREMENT PRIMARY KEY" fraction="0" id="7ac3f268-f22a-4609-898f-2d9737aa3ab3" name="id" nullable="false" scale="10" size="10">
+<Comment/>
+</Attribute>
+<Attribute datatype="DATE" defaultvalue="" extra="" fraction="0" id="7f87d23f-e55a-45ca-87ac-81b86a65ae65" name="school_attended" nullable="true" scale="10" size="10">
+<Comment/>
+</Attribute>
+<Attribute datatype="VARCHAR" defaultvalue="" extra="" fraction="0" id="70cf2c80-8774-48ab-977f-9e422e492507" name="school_city" nullable="true" scale="10" size="255">
+<Comment/>
+</Attribute>
+<Attribute datatype="VARCHAR" defaultvalue="" extra="" fraction="0" id="3722856e-f929-4571-a8b1-936416c8348e" name="state" nullable="true" scale="10" size="255">
+<Comment/>
+</Attribute>
+<Attribute datatype="DATE" defaultvalue="" extra="" fraction="0" id="f1fc43a8-b752-4466-a624-305707de0562" name="year_started" nullable="true" scale="10" size="10">
+<Comment/>
+</Attribute>
+<Attribute datatype="DATE" defaultvalue="" extra="" fraction="0" id="d14ef4d2-0dd5-4ea2-8fbd-d57d7392615e" name="year_ended" nullable="true" scale="10" size="10">
+<Comment/>
+</Attribute>
+<Attribute datatype="INT" defaultvalue="" extra="" fraction="0" id="dcc52307-85b0-44fd-a903-c91fdfb4d692" name="user_id" nullable="true" scale="10" size="10">
+<Comment/>
+</Attribute>
+<Attribute datatype="INT" defaultvalue="" extra="" fraction="0" id="f803f90f-9d2f-4e2b-aba3-fcd24f9c6ecc" name="subject_id" nullable="true" scale="10" size="10">
+<Comment/>
+</Attribute>
+<Attribute datatype="INT" defaultvalue="" extra="" fraction="0" id="a7204568-4ed6-4862-9ce3-7240da46b88e" name="grade_id" nullable="true" scale="10" size="10">
+<Comment/>
+</Attribute>
+<Attribute datatype="DATETIME" defaultvalue="" extra="" fraction="0" id="6bda4e9c-6398-47f0-8451-fe3959713541" name="created_at" nullable="true" scale="10" size="19">
+<Comment/>
+</Attribute>
+<Attribute datatype="DATETIME" defaultvalue="" extra="" fraction="0" id="742ceeab-b9cb-40e6-adb0-00c210abbbc9" name="updated_at" nullable="true" scale="10" size="19">
+<Comment/>
+</Attribute>
+<Index id="cddf5b06-cfca-468c-90ba-3d084fd1503c" indextype="PRIMARYKEY" name="PK_employment_histories">
+<Indexattribute attributerefid="7ac3f268-f22a-4609-898f-2d9737aa3ab3" id="ae534d4f-9b11-4d19-b339-946b5ca615af"/>
+</Index>
+</Table>
+<Table id="dffdb897-7f17-4891-a687-0ba5c0e0a71e" name="employment_subject_associations" schema="">
+<Property name="LOCATION" value="1027:20"/>
+<Comment/>
+<Attribute datatype="INT" defaultvalue="" extra="AUTO_INCREMENT PRIMARY KEY" fraction="0" id="c976c9ab-b834-4e18-b8c4-150e4522a831" name="id" nullable="false" scale="10" size="10">
+<Comment/>
+</Attribute>
+<Attribute datatype="INT" defaultvalue="" extra="" fraction="0" id="0bf6fbfc-8972-4fb9-a06f-3b2d48b7b18a" name="employment_history_id" nullable="true" scale="10" size="10">
+<Comment/>
+</Attribute>
+<Attribute datatype="INT" defaultvalue="" extra="" fraction="0" id="9952a92a-7af9-474d-9867-1667a2031866" name="subject_id" nullable="true" scale="10" size="10">
+<Comment/>
+</Attribute>
+<Attribute datatype="DATETIME" defaultvalue="" extra="" fraction="0" id="a94e7a51-3d14-4b46-8df0-f20139f16fe1" name="created_at" nullable="true" scale="10" size="19">
+<Comment/>
+</Attribute>
+<Attribute datatype="DATETIME" defaultvalue="" extra="" fraction="0" id="b4fe4adf-b04d-4928-9bb8-cf3d7e33d8e0" name="updated_at" nullable="true" scale="10" size="19">
+<Comment/>
+</Attribute>
+<Index id="4f7c41c9-2de5-4fbb-88e7-b67537a1a17b" indextype="PRIMARYKEY" name="PK_employment_subject_associations">
+<Indexattribute attributerefid="c976c9ab-b834-4e18-b8c4-150e4522a831" id="dfd5fbce-dd50-4081-ab6a-3a8ab819553f"/>
+</Index>
+</Table>
+<Table id="6a15664b-e8b8-4af6-91e5-51e1cc872d17" name="friend_requests" schema="">
+<Property name="LOCATION" value="1295:20"/>
+<Comment/>
+<Attribute datatype="INT" defaultvalue="" extra="AUTO_INCREMENT PRIMARY KEY" fraction="0" id="d9ad207f-e56a-4ff6-b86d-76f183b8937b" name="id" nullable="false" scale="10" size="10">
+<Comment/>
+</Attribute>
+<Attribute datatype="INT" defaultvalue="" extra="" fraction="0" id="d4170a97-35cb-4337-a1a4-81e2e19e099c" name="user_id" nullable="true" scale="10" size="10">
+<Comment/>
+</Attribute>
+<Attribute datatype="INT" defaultvalue="" extra="" fraction="0" id="ca8ce8c0-75b6-47c2-96ce-dfd697368985" name="requesed_user_id" nullable="true" scale="10" size="10">
+<Comment/>
+</Attribute>
+<Attribute datatype="DATETIME" defaultvalue="" extra="" fraction="0" id="7eb1892d-a39a-4bf1-88d3-51e238752ee3" name="created_at" nullable="true" scale="10" size="19">
+<Comment/>
+</Attribute>
+<Attribute datatype="DATETIME" defaultvalue="" extra="" fraction="0" id="02ec2555-caff-4a12-a258-27df56040888" name="updated_at" nullable="true" scale="10" size="19">
+<Comment/>
+</Attribute>
+<Index id="7bac153c-5b8e-4f22-9560-fab5897fc27b" indextype="PRIMARYKEY" name="PK_friend_requests">
+<Indexattribute attributerefid="d9ad207f-e56a-4ff6-b86d-76f183b8937b" id="afc0b317-4f9a-4306-a6a4-c5b5ba70c740"/>
+</Index>
+</Table>
+<Table id="d7ba01df-06e7-4db6-9194-1f60031744c8" name="friends" schema="">
+<Property name="LOCATION" value="1530:20"/>
+<Comment/>
+<Attribute datatype="INT" defaultvalue="" extra="AUTO_INCREMENT PRIMARY KEY" fraction="0" id="9790fad6-daaf-4c8f-8fe2-f52580aa9a63" name="id" nullable="false" scale="10" size="10">
+<Comment/>
+</Attribute>
+<Attribute datatype="INT" defaultvalue="" extra="" fraction="0" id="b062cbb3-feb2-4ed4-bd20-9e47c2090bc2" name="user_id" nullable="true" scale="10" size="10">
+<Comment/>
+</Attribute>
+<Attribute datatype="INT" defaultvalue="" extra="" fraction="0" id="b9f05cbf-dc29-42ac-bb57-cbe09caf3eb3" name="friend_user_id" nullable="true" scale="10" size="10">
+<Comment/>
+</Attribute>
+<Attribute datatype="DATETIME" defaultvalue="" extra="" fraction="0" id="46af0dba-68e2-4f5c-9aaa-8f5a7f6a2e3f" name="created_at" nullable="true" scale="10" size="19">
+<Comment/>
+</Attribute>
+<Attribute datatype="DATETIME" defaultvalue="" extra="" fraction="0" id="5cc93043-0400-4a13-a510-1511d06aea7b" name="updated_at" nullable="true" scale="10" size="19">
+<Comment/>
+</Attribute>
+<Index id="773eabea-d98c-4aa7-92b4-ea26f2586c32" indextype="PRIMARYKEY" name="PK_friends">
+<Indexattribute attributerefid="9790fad6-daaf-4c8f-8fe2-f52580aa9a63" id="d44bb0b8-138a-4d9d-aa81-fc30aeb93665"/>
+</Index>
+</Table>
+<Table id="00b97f15-9419-4327-953c-9c6b3257f45c" name="grades" schema="">
+<Property name="LOCATION" value="1765:20"/>
+<Comment/>
+<Attribute datatype="INT" defaultvalue="" extra="AUTO_INCREMENT PRIMARY KEY" fraction="0" id="26f65e50-c54f-4431-899e-5df27e1e10d3" name="id" nullable="false" scale="10" size="10">
+<Comment/>
+</Attribute>
+<Attribute datatype="VARCHAR" defaultvalue="" extra="" fraction="0" id="06ec1753-35d0-4bd0-acda-7cd3c2572878" name="title" nullable="true" scale="10" size="255">
+<Comment/>
+</Attribute>
+<Attribute datatype="DATETIME" defaultvalue="" extra="" fraction="0" id="ae9a2cbb-ffe1-4e20-9752-44a277bd3f2b" name="created_at" nullable="true" scale="10" size="19">
+<Comment/>
+</Attribute>
+<Attribute datatype="DATETIME" defaultvalue="" extra="" fraction="0" id="c2de92fc-6a2d-4fef-99e2-62e103f1bee1" name="updated_at" nullable="true" scale="10" size="19">
+<Comment/>
+</Attribute>
+<Index id="bac7983b-59a8-40a7-a063-522030c2d46c" indextype="PRIMARYKEY" name="PK_grades">
+<Indexattribute attributerefid="26f65e50-c54f-4431-899e-5df27e1e10d3" id="b8379c4f-de0a-4425-9ac9-979ee609ff95"/>
+</Index>
+</Table>
+<Table id="04c1c259-8933-4a78-a7b9-417dde5ac823" name="messages" schema="">
+<Property name="LOCATION" value="0:252"/>
+<Comment/>
+<Attribute datatype="INT" defaultvalue="" extra="AUTO_INCREMENT PRIMARY KEY" fraction="0" id="a3e4bcfc-fce5-4ff6-8c57-de080b3caaed" name="id" nullable="false" scale="10" size="10">
+<Comment/>
+</Attribute>
+<Attribute datatype="INT" defaultvalue="" extra="" fraction="0" id="44aeab2d-1a9a-49b4-a2d5-ed3d76a2db20" name="from_user" nullable="true" scale="10" size="10">
+<Comment/>
+</Attribute>
+<Attribute datatype="INT" defaultvalue="" extra="" fraction="0" id="fc9c5104-2623-4f26-a77f-d08e1790ea11" name="to_user" nullable="true" scale="10" size="10">
+<Comment/>
+</Attribute>
+<Attribute datatype="BIT" defaultvalue="" extra="" fraction="0" id="fd09de4c-5b7f-426d-8dda-560ada681a02" name="read_flag" nullable="true" scale="10" size="0">
+<Comment/>
+</Attribute>
+<Attribute datatype="VARCHAR" defaultvalue="" extra="" fraction="0" id="11e801fc-724f-4598-8fd1-8fd29e334dc5" name="subject" nullable="true" scale="10" size="255">
+<Comment/>
+</Attribute>
+<Attribute datatype="TEXT" defaultvalue="" extra="" fraction="0" id="3f40b49d-f63d-4671-bcea-a39762076546" name="message" nullable="true" scale="10" size="65535">
+<Comment/>
+</Attribute>
+<Attribute datatype="DATETIME" defaultvalue="" extra="" fraction="0" id="e9739cf0-f96c-4678-9e8e-6383b1b65b28" name="created_at" nullable="true" scale="10" size="19">
+<Comment/>
+</Attribute>
+<Attribute datatype="DATETIME" defaultvalue="" extra="" fraction="0" id="0ce79cc3-22ca-4894-9c51-8132a940cdf9" name="updated_at" nullable="true" scale="10" size="19">
+<Comment/>
+</Attribute>
+<Index id="8f18628f-42b1-4713-8125-65f961b6f19c" indextype="PRIMARYKEY" name="PK_messages">
+<Indexattribute attributerefid="a3e4bcfc-fce5-4ff6-8c57-de080b3caaed" id="7b23ecdf-4ea1-4bc5-90b9-04d91d70ec74"/>
+</Index>
+</Table>
+<Table id="fcc47c77-dd3b-45e5-beea-5fc9cbb93875" name="schema_migrations" schema="">
+<Property name="LOCATION" value="241:252"/>
+<Comment/>
+<Attribute datatype="VARCHAR" defaultvalue="" extra="" fraction="0" id="5c025e1f-71b2-4ff7-8114-94b3c3d30336" name="version" nullable="false" scale="10" size="255">
+<Comment/>
+</Attribute>
+<Index id="b6ee81c4-6047-44f4-bdcb-fe90b4eb0dbc" indextype="UNIQUE" name="unique_schema_migrations">
+<Indexattribute attributerefid="5c025e1f-71b2-4ff7-8114-94b3c3d30336" id="b0fc5301-f4e1-4b85-ab14-c91b6bda44ff"/>
+</Index>
+</Table>
+<Table id="2d5d122c-67a1-44fc-898e-9a92e4dea831" name="subjects" schema="">
+<Property name="LOCATION" value="482:252"/>
+<Comment/>
+<Attribute datatype="INT" defaultvalue="" extra="AUTO_INCREMENT PRIMARY KEY" fraction="0" id="f385ab17-46d7-456c-b408-807295927fa1" name="id" nullable="false" scale="10" size="10">
+<Comment/>
+</Attribute>
+<Attribute datatype="VARCHAR" defaultvalue="" extra="" fraction="0" id="f01a5404-d380-4d0e-ae87-6fedb1c13579" name="title" nullable="true" scale="10" size="255">
+<Comment/>
+</Attribute>
+<Attribute datatype="DATETIME" defaultvalue="" extra="" fraction="0" id="eda50fba-71d6-4b29-9331-8bf272628453" name="created_at" nullable="true" scale="10" size="19">
+<Comment/>
+</Attribute>
+<Attribute datatype="DATETIME" defaultvalue="" extra="" fraction="0" id="0d6e8fb1-cbb3-4382-9f52-836d5dbb3cff" name="updated_at" nullable="true" scale="10" size="19">
+<Comment/>
+</Attribute>
+<Index id="06dfa53d-f5b7-43d0-b182-d65b4330abb3" indextype="PRIMARYKEY" name="PK_subjects">
+<Indexattribute attributerefid="f385ab17-46d7-456c-b408-807295927fa1" id="686b31ff-d2f7-4379-8b5c-56265ab263ec"/>
+</Index>
+</Table>
+<Table id="bd8c3716-6fd5-45f9-bbaa-e54ddbaadab1" name="users" schema="">
+<Property name="LOCATION" value="717:252"/>
+<Comment/>
+<Attribute datatype="INT" defaultvalue="" extra="AUTO_INCREMENT PRIMARY KEY" fraction="0" id="f87ae0b5-3056-4813-8531-6a351c5e5221" name="id" nullable="false" scale="10" size="10">
+<Comment/>
+</Attribute>
+<Attribute datatype="VARCHAR" defaultvalue="" extra="" fraction="0" id="cd8c1aea-43bd-4692-b2c1-1557aef2de74" name="first_name" nullable="true" scale="10" size="255">
+<Comment/>
+</Attribute>
+<Attribute datatype="VARCHAR" defaultvalue="" extra="" fraction="0" id="47d254b4-7179-4ee1-9b9c-5014634bfcf8" name="last_name" nullable="true" scale="10" size="255">
+<Comment/>
+</Attribute>
+<Attribute datatype="VARCHAR" defaultvalue="" extra="" fraction="0" id="0efe1390-14c4-46a1-aeca-dfee6a626868" name="nick_name" nullable="true" scale="10" size="255">
+<Comment/>
+</Attribute>
+<Attribute datatype="VARCHAR" defaultvalue="" extra="" fraction="0" id="35739336-0130-4e65-a791-d930067e4ed7" name="password" nullable="true" scale="10" size="255">
+<Comment/>
+</Attribute>
+<Attribute datatype="VARCHAR" defaultvalue="" extra="" fraction="0" id="53c9252a-be11-4412-a220-83ae3044aa23" name="re_enter_password" nullable="true" scale="10" size="255">
+<Comment/>
+</Attribute>
+<Attribute datatype="INT" defaultvalue="" extra="" fraction="0" id="456d4572-8ba2-470f-9839-37065a8c868c" name="educator_type_id" nullable="true" scale="10" size="10">
+<Comment/>
+</Attribute>
+<Attribute datatype="VARCHAR" defaultvalue="" extra="" fraction="0" id="6fefe989-475f-4f27-9a92-5dd213c747d8" name="email" nullable="true" scale="10" size="255">
+<Comment/>
+</Attribute>
+<Attribute datatype="TEXT" defaultvalue="" extra="" fraction="0" id="dc9f336f-4067-4f4e-b0e9-a228bf521373" name="most_imp_exp" nullable="true" scale="10" size="65535">
+<Comment/>
+</Attribute>
+<Attribute datatype="TEXT" defaultvalue="" extra="" fraction="0" id="828b1595-e539-4c41-8f4a-1b0afb039edf" name="about_self" nullable="true" scale="10" size="65535">
+<Comment/>
+</Attribute>
+<Attribute datatype="VARCHAR" defaultvalue="" extra="" fraction="0" id="cb4b437b-4ced-4137-bd79-c509085de48d" name="image_file_name" nullable="true" scale="10" size="255">
+<Comment/>
+</Attribute>
+<Attribute datatype="VARCHAR" defaultvalue="" extra="" fraction="0" id="a5b61baf-465a-4d6e-8780-18dca7a8591f" name="image_content_type" nullable="true" scale="10" size="255">
+<Comment/>
+</Attribute>
+<Attribute datatype="INT" defaultvalue="" extra="" fraction="0" id="ed1b5403-6ec3-444f-bee8-42394e8ec67f" name="image_file_size" nullable="true" scale="10" size="10">
+<Comment/>
+</Attribute>
+<Attribute datatype="DATETIME" defaultvalue="" extra="" fraction="0" id="cc5130a3-aedd-4272-a14e-79a4f1894694" name="image_updated_at" nullable="true" scale="10" size="19">
+<Comment/>
+</Attribute>
+<Attribute datatype="DATETIME" defaultvalue="" extra="" fraction="0" id="03b8d706-f7e2-445c-aa73-b7f6f1307675" name="created_at" nullable="true" scale="10" size="19">
+<Comment/>
+</Attribute>
+<Attribute datatype="DATETIME" defaultvalue="" extra="" fraction="0" id="71925a81-e3d4-4159-a875-c1da3c7b0e6e" name="updated_at" nullable="true" scale="10" size="19">
+<Comment/>
+</Attribute>
+<Index id="4e52b55d-f34b-444f-bf40-9572a415c4b0" indextype="PRIMARYKEY" name="PK_users">
+<Indexattribute attributerefid="f87ae0b5-3056-4813-8531-6a351c5e5221" id="92fa8854-b295-4ad4-af59-2195338c574e"/>
+</Index>
+</Table>
+</Tables>
+<Relations/>
+<Views/>
+<Subjectareas/>
+<Comments/>
+</Model>

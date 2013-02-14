@@ -1,0 +1,6 @@
+<%= simple_form_for([@user, @employer], :remote=>true ) do |f| %>
+  <%= f.input :title, :required=> true, :wrapper_html=>{:class=>'space-0 space-inner-0 left'}, :input_html=>{:class=>'sinlge-field'},
+    :label=>false %>
+  <%= f.submit 'Save', :class=>'space-left-10 left sinlge-field' %>
+  <a href="#" class="space-left-5 action single-field-cancel">cancel</a>
+<% end %>

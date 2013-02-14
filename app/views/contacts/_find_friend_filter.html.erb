@@ -1,0 +1,36 @@
+<% @grades = @grade_list - [""] %>
+<% @subjects = @subject_list - [""] %>
+<% @my_interests = @my_interest_list - [""] %>
+
+<div class="left space-10 display-block width-30-percent">
+  <%= simple_form_for :filter,:url=> contacts_find_friends_path, :remote=>true do |f| %>
+    <%=  f.simple_fields_for :name do |sn| %>
+      <%= sn.input :search_by_name, :as=>:string, :label=>'Search Friends by name',
+        :placeholder=>"search by name",:input_html=>{ :class=>'width-80-percent'},:required=>false,
+        :label_html=>{:class=>"text-align-left width-100-percent font-14 bold space-bottom-5"} %>
+    <% end %>
+
+    <%=  f.simple_fields_for :grade_box do |sg| %>
+      <%= sg.input :grade_list,
+        :label=>'Grades',:label_html=>{:class=>'font-14 bold'}, :as=> :check_boxes,
+        :collection=>@grades ,:required=>false %>
+      <%= sg.input :grade,:label=>false,:input_html=>{ :class=>'width-80-percent'},
+        :as=> :string,:placeholder=>'enter grade' ,:required=>false  %>
+    <%end%>
+
+    <%=  f.simple_fields_for :subject_box do |ss| %>
+      <%= ss.input :subject_list,:label=>'Subjects',:label_html=>{:class=>'font-14 bold'},
+        :as=> :check_boxes, :collection=>@subjects,:required=>false  %>
+      <%= ss.input :subject,:label=>false,:input_html=>{ :class=>'width-80-percent'},
+        :as=> :string,:placeholder=>'enter subject',:required=>false  %>
+    <%end%>
+
+    <%=  f.simple_fields_for :my_interest_box do |sm| %>
+      <%= sm.input :my_interest_list,:label=>'Tags',:label_html=>{:class=>'font-14 bold'},
+        :as=> :check_boxes, :collection=>@my_interests,:required=>false  %>
+      <%= sm.input :my_interest,:label=>false,:input_html=>{ :class=>'width-80-percent'},
+        :as=> :string,:placeholder=>'enter tags',:required=>false  %>
+    <% end %>
+    <%= f.submit :label=>false,:class=>'hide' %>
+  <% end %>
+</div>

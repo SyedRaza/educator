@@ -1,0 +1,9 @@
+<%= show_for @education_history do |s| %>
+  <%= s.attribute :school_attended %>
+  <%= s.attribute :year_graduated %>
+  <%= s.attribute :major %>
+  <%= s.association :user %>
+<% end %>
+
+<%= link_to 'Edit', edit_education_history_path(@education_history) %> |
+<%= link_to 'Back', education_histories_path %>

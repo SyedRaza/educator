@@ -1,0 +1,30 @@
+/* 
+    Document   : show.js
+    Created on : Apr 29, 2011, 3:54:00 PM
+    Author     : razakhalid
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+a.cancel{
+    display:none;
+}
+.profile-details-form { overflow:hidden; }
+
+p { margin:0px; padding:0px 0px 3px 0px;}
+input[type="text"] { width:280px;}
+input[type="password"] { width:280px;}
+input[type="date"] { width:250px;}
+input[type="year"] { width:132px;}
+select { width:280px;}
+.date-options { width:102px; }
+textarea { width:280px;}
+.basic-information-form{display: none;}
+.employment-history-form{display: none;}
+.right-data-employer{width: 244px}
+.field-box li > label { width:134px;  }

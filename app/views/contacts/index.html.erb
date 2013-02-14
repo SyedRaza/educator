@@ -1,0 +1,57 @@
+<%= content_for :right_side_bar do %>
+  <%= render :partial => 'contacts/right_side_bar' %>
+  <%= content_tag :div, :id=>'compact-contact-side-bar', :class=>'group-right-sidebar' do %>
+    <%= render :partial => 'contacts/group_sidebar' %>
+  <% end %>
+<%end%>
+<%= content_for :css do %>
+  <% stylesheet_link_tag 'contacts/index' %>
+<% end %>
+
+<div id="contact-info-container-<%=  current_user.id%>">
+  <%= content_for :page_heading do %>
+    <div id="title-group" class="heading-blue-medium-white-exlarge heading-inner white"><span class="font-18">Contacts</span></div>
+  <% end %>
+  <div class="container-inner-white-exlarge left-border border-color overflow-hidden">
+    <div class="display-inline-block overflow-hidden right display-clear space-right-15 space-left-15">
+
+      <%= link_to "Create a Group", 'contacts/group/?form=true', :remote=>true, :class=>"font-14 button right space-right-inner-5 space-left-inner-5 space-top-5" %>
+      <div class="right space-right-15">
+        <%= simple_form_for :search_contacts ,
+          :url=>url_for( :controller=>"contacts", :action=>"index"),
+          :html=>{:class=>"space-inner-0", :method=>"get"},
+          :remote=>true do |f| %>
+          <%= f.input :name, :as=>:string, :label=>false, :placeholder=>'search by name', :input_html=>{ :class=>'search-bar border-none' } %>
+          <%= f.submit :label=>false,:class=>'hide' %>
+        <% end %>
+      </div>
+    </div>
+    <div class="display-clear display-block listing-top-heading-bar green-background space-left-inner-5 space-right-inner-5 space-right-10 space-left-10">
+      <div class="left space-top-inner-5">      
+        <select id="select_group_type_id">
+          <option value="" disabled="disabled" selected="selected">* Assign Group</option>
+          <%@groups.each do |g|%>
+            <option value="<%=  g.id %>"><%=  g.title %></option>
+          <%end%>
+        </select>
+      </div>
+      <div class="right space-top-inner-5">
+        <%= page_entries_info @list, :entry_name => 'contacts' unless @list.empty?%>
+      </div>
+    </div>
+    <div id="contact-list-container-<%= current_user.id %>" >
+      <%=render :partial=>'contact_listing',:locals=>{ :list=>@list, :group=>@groups} %>
+    </div>
+  </div>
+</div>
+<div id="new-pop-container"></div>
+<div class="friends-profile-details"></div>
+
+<div class="border-bottom-gradient"></div>
+<script type="text/javascript">
+  var groups = <%= raw @groups.to_json %>
+</script>
+
+<%= content_for :js do %>
+  <%= javascript_include_tag 'contacts/index.js' %>
+<% end %>

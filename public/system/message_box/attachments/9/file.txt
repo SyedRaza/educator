@@ -1,0 +1,35 @@
+first name
+last name
+nick name
+picture
+gender
+date of birth
+address
+zip code
+city 
+country
+website
+About me
+
+Education History
+
+Institue Name 
+Type of degree
+degree conferred
+specialization
+Major Subjects
+My Interst
+from 
+to
+
+Employment History
+
+Employer
+Position
+Role Description
+Grade
+Subjects
+My interst
+Date Started 
+Date Ended
+

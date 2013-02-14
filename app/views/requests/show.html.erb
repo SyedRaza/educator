@@ -1,0 +1,10 @@
+<%= show_for @message do |s| %>
+  <%= s.attribute :from_user %>
+  <%= s.attribute :to_user %>
+  <%= s.attribute :read_flag %>
+  <%= s.attribute :subject %>
+  <%= s.attribute :message %>
+<% end %>
+
+<%= link_to 'Edit', edit_message_path(@message) %> |
+<%= link_to 'Back', messages_path %>

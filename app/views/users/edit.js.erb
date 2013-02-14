@@ -1,0 +1,3 @@
+$('#basic-information-actions > .action.edit').hide().siblings('a.action.cancel').show();
+$('div#user_<%= params[:id] %>')
+.hide('blind').parents('.info-details').hide('blind').append("<%=escape_javascript(render :partial => 'form') %>").show('blind');

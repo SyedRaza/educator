@@ -1,0 +1,6 @@
+$('div#contact-list-container-<%= current_user.id %>').html('<%= escape_javascript(render :partial=> 'contact_listing', :locals=>{:list=>@list} )%>');
+$('div.listing').html('Displaying <b>all <%=@list.count %></b> users');
+<% unless @notice.nil? %>
+  $('div.notice').html('<span class="font-14" ><%=@notice %> </span>').show().delay(3000).fadeOut();
+<% end %>
+  

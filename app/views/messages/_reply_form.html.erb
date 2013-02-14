@@ -1,0 +1,6 @@
+<%= simple_form_for :replies,
+  :url=>"#{id}/replies", :html => { :multipart => true } do |s|  %>
+  <%= s.input :message_reply, :as=>:text %>
+  <%= s.input :upload, :as=>:file, :required=>false %>
+  <%= s.submit 'Reply'  %>
+<% end %>

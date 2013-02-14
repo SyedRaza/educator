@@ -1,0 +1,13 @@
+$('div#discussion-status-bar-<%=  params[:discussion_id] %>').siblings('div.view-comments').html("<%=escape_javascript(render :partial => 'list') %>").show('blind');
+<% unless params[:value].nil? %>
+  $('div#discussion-status-bar-<%=  params[:discussion_id] %> a.view-all-comments').show().siblings('a.hide-comments').hide();
+<%else%>
+  $('div#discussion-status-bar-<%=  params[:discussion_id] %> a.view-all-comments').hide().siblings('a.hide-comments').show();
+<%end%>
+
+  $('div#archive-status-bar-<%=  params[:archive_id] %>').siblings('div.view-comments').html("<%=escape_javascript(render :partial => 'list') %>").show('blind');
+<% unless params[:value].nil? %>
+  $('div#archive-status-bar-<%=  params[:archive_id] %> a.view-all-comments').show().siblings('a.hide-comments').hide();
+<%else%>
+  $('div#archive-status-bar-<%=  params[:archive_id] %> a.view-all-comments').hide().siblings('a.hide-comments').show();
+<%end%>

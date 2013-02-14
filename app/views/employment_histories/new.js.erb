@@ -1,0 +1,54 @@
+<% if params[:employer_id].nil? %>
+ $('a.action.new.employment-history').hide().siblings('a.cancel').show();
+  $('div#employment-history-<%= current_user.id%> > .info-details').hide('blind',function(){
+  $(this).prepend("<%=escape_javascript(render :partial => 'form') %>").show('blind', function(){
+  $('#employment_history_grade_list').tokenInput('/employment_histories/search.json', {
+    extraParam: 'type',
+    theme: 'facebook',
+    extraValue: 'grade',
+    preventDuplicates: true
+  });
+  $('#employment_history_subject_list').tokenInput('/employment_histories/search.json', {
+    extraParam: 'type',
+    theme: 'facebook',
+    extraValue: 'subjects'
+   });
+  $('#employment_history_my_interest_list').tokenInput('/employment_histories/search.json', {
+    extraParam: 'type',
+    theme: 'facebook',
+    extraValue: 'my_interest',
+    preventDuplicates: true
+    });
+    update_live_events();
+  });
+});
+set_options_css();
+<%else%>
+$('div#employer_<%= params[:employer_id]%>').find('div.employer-position-list').hide('blind',function(){
+$(this).prepend("<%=escape_javascript(render :partial => 'form') %>").show('blind', function(){
+  $('#employment_history_grade_list').tokenInput('/employment_histories/search.json', {
+    extraParam: 'type',
+    theme: 'facebook',
+    extraValue: 'grade',
+    preventDuplicates: true
+  });
+  $('#employment_history_subject_list').tokenInput('/employment_histories/search.json', {
+    extraParam: 'type',
+    theme: 'facebook',
+    extraValue: 'subjects',
+    preventDuplicates: true
+   });
+  $('#employment_history_my_interest_list').tokenInput('/employment_histories/search.json', {
+    extraParam: 'type',
+    theme: 'facebook',
+    extraValue: 'my_interest',
+    preventDuplicates: true
+    });
+    update_live_events();
+  });
+});
+set_options_css();
+//$('div#employer_<%= params[:employer_id]%>').find('.div-action > a.action.new').hide();
+//$('div#employer_<%= params[:employer_id]%>').find('.div-action > a.action.delete').hide();
+//$('div#employer_<%= params[:employer_id]%>').find('.div-action > a.action.cancel').show();
+<% end %>

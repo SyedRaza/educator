@@ -1,0 +1,13 @@
+<% if params.has_key?(:search_contacts) %>
+  $('div#contact-list-container-<%= current_user.id %>')
+  .html('<%= escape_javascript(render :partial=> 'contact_listing',:locals=>{ :list=>@list})%>');
+<% elsif params.has_key?(:show_detail) %>
+  $('div.friends-profile-details')
+  .html('<%= escape_javascript(render :partial=> 'friend_profile_details', :locals=>{ :friend=>@companion})%>').show();
+<% end %>
+$('select.combo-box').combobox({
+selected: function(event, ui){
+var frnd_id = $('input#friend_id').val();
+$.getScript("/users/<%=  current_user.id %>/contacts/group/?friendd_id="+frnd_id+"&group_id="+ui.item.value);
+}
+});

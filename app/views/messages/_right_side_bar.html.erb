@@ -1,0 +1,20 @@
+
+<div id="compact-message-side-bar">
+  <div class="heading-green-small-white-small heading-inner white">Messages</div>
+  <div class="container-inner-white-small left-border border-color space-bottom-inner-25 overflow-hidden">
+    <div class="inner-container">
+      <div class="links green-background space-top-5 space-left-inner-5">
+        <img src="/images/incomming.jpg" />
+        <span><%= link_to 'Incoming Messages', { :action=>'index', :controller=>:messages, :type=>:incoming }, :remote=>true  %></span>
+        <span class="count"><%#= count_unread_messages %></span>
+      </div>
+
+      <div class="links green-background space-top-5 space-left-inner-5">
+        <img src="/images/outgoing.jpg" />
+        <span><%= link_to 'Sent', { :controller=>:messages, :action=>:index, :type=>'Sent' }, :remote=>true  %></span>
+        <span class="count"><%#= count_sent_messages  %></span>
+      </div>
+    </div>
+  </div>
+  <div class="border-bottom-gradient"></div>
+</div>

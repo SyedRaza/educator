@@ -1,0 +1,17 @@
+
+<%= content_tag :div, :id=>"compact-contact-side-bar",
+  :class=>"container bottom-border border-color space-top-inner-10 space-bottom-inner-10" do %>
+  <% current_user.companions.order('created_at DESC').limit(5).each do |companion|  %>
+    <%= show_for companion, :class=>'friends-box  inner-container space-left-10'  do |s| %>
+      <%= s.value '' do %>
+        <%= image_tag s.object.display_picture.url, :class=>'pic-small space-bottom-5 left' %>
+        <%= link_to "#{ s.object.first_name } #{ s.object.last_name }",
+          user_path( s.object ), :class=>'space-left-10 space-top-10' %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+<%= content_tag :div, :class=>'space-bottom-5 font-10' do %>
+  <%= link_to 'View all contacts',
+    user_contacts_path( current_user ) %>
+<% end %>

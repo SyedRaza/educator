@@ -1,0 +1,203 @@
+/* 
+    Document   : index.css
+    Created on : May 26, 2011, 3:12:11 PM
+    Author     : tariqhabib
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.green-background a {
+    color:#626463;
+}
+
+root { 
+    display: block;
+}
+
+.show-contact-hr{
+    width: 100px;
+    float: left;
+}
+.contact_list{
+    width: 662px;
+}
+
+.cell{
+    height:103px;
+    position: relative;
+    float: left;
+    margin-left: 1px;
+    display: block;
+    box-sizing: border-box;
+}
+
+.cell .actions{
+    display: none;
+    background-color: transparent;
+}
+
+.cell .close{
+    position:absolute;
+    right: 0;
+    top: 0;
+    z-index: 10;
+    border-color: gainsboro grey grey gainsboro;
+    border-style: solid;
+    border-width: 1px;
+    color: navy;
+    cursor: pointer;
+    font-size: 12px;
+    height: 12px;
+    position: absolute;
+    text-align: center;
+    line-height: 11px;
+    width: 12px;
+}
+
+
+
+.cell:hover {
+    background-color: #EDF2D6;
+}
+.cell:hover .actions{
+    display: block;
+}
+.cell.selected {
+    background-color: #EDF2D6;
+    
+}
+
+select {
+    -moz-border-radius: 4px;
+    -moz-box-shadow: 1px 1px 5px #cfcfcf inset;
+    max-height: 30px;
+    height: 24px;
+    overflow-y: auto;
+    vertical-align: middle;
+    background-color: transparent;
+}
+
+option {
+    background-color: #DDDDDD;
+    border-bottom: 1px solid #ebdac0;
+    border-right: 1px solid #d6bb86;
+    border-left: 1px solid #d6bb86;
+}
+
+option:hover {
+    cursor: pointer;
+}
+
+li.token-input-token-facebook {
+    overflow: hidden;
+    height: auto !important;
+    height: 15px;
+    font-weight: bold;
+    margin-top: 3px;
+    margin-left: 2px;
+    padding:3px 2px;
+    background-color: #eff2f7;
+    color: #000;
+    cursor: default;
+    border: 1px solid #ccd5e4;
+    font-size: 11px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    float: left;
+    white-space: nowrap;
+}
+
+li.token-input-token-facebook p {
+    display: inline;
+    padding: 0;
+    margin: 0;
+}
+
+li.token-input-token-facebook span {
+    color: #a6b3cf;
+    margin-left: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+div.friends-profile-details {
+    background-color: #fff;
+    display: none;
+    min-height: 150px;
+    left: 290px;
+    outline: 0px none;
+    position: absolute;
+    top: 87px;
+    z-index: 1020;
+    overflow: visible;
+}
+#contact_check_boxes{
+    width: 280px;
+    max-height: 200px;
+    overflow-y: auto;
+    float: left;
+    display: inline-block;
+}
+#contact_check_boxes > span{
+    display: inline-block;
+    width:45%;
+    float:left;
+}
+#contact_check_boxes > span:nth-of-type(2n+1){
+    margin-right: 15px;
+}
+.check-box-cell{
+    height:50px;    
+}
+.check-box-cell:hover {
+    background-color: #EDF2D6;
+
+}
+.check-box-cell.selected {
+    background-color: #EDF2D6;
+
+}
+.border-reset{
+    border: none !important;
+}
+.group-cell{
+    height:103px;
+    position: relative;
+    float: left;
+    margin-left: 1px;
+    display: block;
+    box-sizing: border-box;
+}
+
+.group-cell .actions{
+    display: none;
+    background-color: transparent;
+}
+
+.group-cell .close{
+    position:absolute;
+    right: 0;
+    top: 0;
+    z-index: 10;
+    border-color: gainsboro grey grey gainsboro;
+    border-style: solid;
+    border-width: 1px;
+    color: navy;
+    cursor: pointer;
+    font-size: 12px;
+    height: 12px;
+    position: absolute;
+    text-align: center;
+    line-height: 11px;
+    width: 12px;
+}
+
+
+
+.group-cell:hover {
+    background-color: #EDF2D6;
+}
+.group-cell:hover .actions{
+    display: block;
+}

@@ -1,0 +1,7 @@
+<% unless @message!= ''  %>
+  $('.btn-cancel').trigger('click');
+  <% @message=nil %>
+<% else %>
+  set_error_message('#pass_change_old_password',
+                    '<%= @message %>' );
+<% end %>
